@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sahasra Tummala - Portfolio</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div id="home">
+        <div class="profile_name">
+          Sahasra Tummala
+          <div class="contact_info">
+            <img src="html_finalprojimages/envelope.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
+          sahasratummala73@gmail.com
+        </div>
+        <div style="clear:both;"></div>
+        <div class="contact_info">
+          <img src="html_finalprojimages/phone.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
+          (972) 837-9680
+
+        </div>
+        </div>
+        <div class="topdiv">
+          <a class="topmenu" href="#about-me">About Me</a>
+          <!-- Add the links for Skills, Projects and Recommendation here -->
+          <a class="topmenu" href="#skills">Skills</a>
+          <a class="topmenu" href="#projects">Projects</a>
+          <a class="topmenu" href="#recommendations">Messages</a>
+        </div>
+      </div>    
+    </nav>
+
+    <!-- About Me -->
+    <section id="about-me" class="container">
+      <div>
+        <img src="profile.jpg" class="profile_image"/>
+      </div>
+
+      <div>
+          <h1>
+            Hi, I'm Sahasra Tummala! <img src="html_finalprojimages/waving-hand.png" width="60px"/>
+          </h1>
+          <p>
+            As a senior at Rick Reedy High School pursuing computer science, I believe computer science is a bridge to making visions a reality. I have used my skills to co-develop a website and application surrounding women's health and human rights. My most recent project is an app offering personalized Ayurvedic treatments, for which I am currently prototyping.
+          </p>
+      </div>
+    </section>
+              
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Programming Languages (Skills)</h2>
+      <div style="clear:both;"></div>
+
+      <div class="all_skills">
+        <div class="skill">
+          <img src="html_finalprojimages/html5.png"/>
+          <h6>HTML</h6>
+          <p>2 years experience</p>
+        </div>  
+
+        <div class="skill">
+          <img src="html_finalprojimages/js.jpeg"/>
+          <h6>JavaScript</h6>
+          <p>2 years experience</p>
+        </div>  
+
+        <!-- Add more skills here -->
+        <div class="skill">
+          <img src="html_finalprojimages/CSS3.png"/>
+          <h6>CSS</h6>
+          <p>2 years experience</p>
+        </div>  
+
+        <div class="skill">
+          <img src="html_finalprojimages/C.png"/>
+          <h6>C++</h6>
+          <p>1 year experience</p>
+        </div>  
+
+        <div class="skill">
+          <img src="html_finalprojimages/java.png"/>
+          <h6>Java</h6>
+          <p>5 years experience</p>
+        </div>  
+
+        <div class="skill">
+          <img src="html_finalprojimages/python.png"/>
+          <h6>Python</h6>
+          <p>5 years experience</p>
+        </div>  
+
+        <div class="skill">
+          <img src="html_finalprojimages/swift.png"/>
+          <h6>SwiftUI</h6>
+          <p>1 year experience</p>
+        </div>
+      </div>
+    </section>
+          
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <h2>
+        Projects
+      </h2>
+      <div style="clear:both;"></div>
+
+        <div id="projects-container" class="projects-container">
+          <div class="project-card">
+            <h3>Mariposa</h3>
+            <ul>
+              <li>Worked with three other high schoolers to create a fully responsive website providing human rights resources with HyperText Markup Language (HTML), Cascading Style Sheets (CSS), and JavaScript</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="project-card">
+            <h3>Project Vitality</h3>
+            <ul>
+              <li>Worked with three other high schoolers to create a fully functioning IOS-capable app about period poverty using Swift and SwiftUI</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="project-card">
+            <h3>Ayur</h3>
+            <ul>
+              <li>Leading the development of an app offering personalized Ayurvedic treatments</li>
+            </ul>
+          </div>
+    </div>
+    </section>
+    <div style="clear:both;"></div>
+
+    <!-- Recommendations -->
+    <section id="recommendations">
+      <h2>Messages</h2>
+      <div style="clear:both;"></div>
+      <div class="all_recommendations" id="all_recommendations">
+        <div class="recommendation">
+          <span>&#8220;</span>
+          Okay, so for one, you’re literally my role model. Like I want to be you when I grow up. You’re so smart and so incredibly gifted and hard working. You’re also just such a sweet and funny person with an awesome personality.           <span>&#8221;</span>
+        </div>
+        <div class="recommendation">
+          <span>&#8220;</span>
+          You are literally the smartest person I’ve ever met, and I really respect that even though you like to troll me and what I say every chance you get. Keep grinding, you won’t regret it, I know you’re gonna do great things          <span>&#8221;</span>
+        </div>
+        <div class="recommendation">
+          <span>&#8220;</span>
+          You are the funniest person I know, spending C lunch with you has been a blast. You always have a story to tell everytime and always make us laugh. I hope to see you next year, and have a great summer!
+          <span>&#8221;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendation Form -->
+    <section id="contact">
+      <div class="flex_center">
+        <fieldset>
+          <legend class="introduction">Leave a Message</legend>          
+          <input type="text" placeholder="Name (Optional)"> <br/>
+          <textarea id="new_recommendation" cols="500" rows="10" placeholder="Message"></textarea>
+          <div class="flex_center">
+            <button id="recommend_btn" onclick="addRecommendation();">Submit</button>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <div class="iconbutton">
+      <a href="#home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" width="63px">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+      </a>
+    </div>
+
+    <div class="popup" id="popup" class="flex_center">
+      <img src="html_finalprojimages/checkmark--outline.svg"/>
+      <h3>Thanks for leaving a message!</h3>
+      <button onclick="showPopup(false)">Ok</button>
+    </div>
+  </body>
+</html>
