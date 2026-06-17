@@ -1,0 +1,4 @@
+const tsrStartManifest = () => ({ routes: { __root__: { filePath: "/Users/sahasratummala/Downloads/portfolio/src/routes/__root.tsx", children: ["/", "/communities", "/projects", "/sitemap.xml"], preloads: ["/assets/index-DEvLgxIU.js"], scripts: [{ attrs: { type: "module", async: true, src: "/assets/index-DEvLgxIU.js" } }] }, "/": { filePath: "/Users/sahasratummala/Downloads/portfolio/src/routes/index.tsx", children: void 0, preloads: ["/assets/index-D8webTpP.js", "/assets/site-chrome-ti2jN8Cb.js"] }, "/communities": { filePath: "/Users/sahasratummala/Downloads/portfolio/src/routes/communities.tsx", children: void 0, preloads: ["/assets/communities-D-6EGNvN.js", "/assets/site-chrome-ti2jN8Cb.js"] }, "/projects": { filePath: "/Users/sahasratummala/Downloads/portfolio/src/routes/projects.tsx", children: void 0, preloads: ["/assets/projects-Ds9zhtp6.js", "/assets/site-chrome-ti2jN8Cb.js"] } } });
+export {
+  tsrStartManifest
+};
