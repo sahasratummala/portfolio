@@ -5,7 +5,7 @@ import kafCoverImg from "@/assets/kaf-cover.png";
 import keeprCoverImg from "@/assets/keepr-cover.png";
 import stampedeImg from "@/assets/stampede.png";
 import dfaImg from "@/assets/Tshirt.png";
-import friImg from "@/assets/TexasFri.jpg";
+import friImg from "@/assets/TexasFRI.jpg";
 import longhornDevsImg from "@/assets/longhorn-devs.png";
 import vofImg from "@/assets/vofImg.jpg";
 
