@@ -27,11 +27,11 @@ export function SiteHeader() {
           Projects
         </Link>
         <Link
-          to="/about"
+          to="/communities"
           className="site-nav-link"
           activeProps={{ className: "site-nav-link site-nav-link--active" }}
         >
-          About
+          Communities
         </Link>
         <a
           href={resumeUrl}
@@ -52,14 +52,11 @@ export function SiteFooter() {
     <footer className="mx-auto mt-24 w-full max-w-6xl border-t border-border px-6 py-16">
       <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
         <div className="space-y-1">
-          <p className="section-kicker">Currently</p>
-          <p className="text-base text-muted-foreground">
-            reading <span className="text-foreground">The Housekeeper and the Professor</span>
-          </p>
+          <p className="text-xl font-display font-bold tracking-tight">Reach out!</p>
         </div>
 
         <nav className="flex items-center gap-3">
-          {socials.map(({ label, href, Icon }) => (
+          {socials.map(({ label, href, Icon: IconComponent }) => (
             <a
               key={label}
               href={href}
@@ -68,7 +65,7 @@ export function SiteFooter() {
               aria-label={label}
               className="icon-link"
             >
-              <Icon className="h-5 w-5" strokeWidth={1.75} />
+              <IconComponent className="h-5 w-5" strokeWidth={1.75} />
             </a>
           ))}
         </nav>

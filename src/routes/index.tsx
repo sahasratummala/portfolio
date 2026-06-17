@@ -10,12 +10,6 @@ export const Route = createFileRoute("/")({
         content:
           "Sahasra Tummala — R&D Intern at Sandia National Labs, studying CS & Design at UT Austin.",
       },
-      { property: "og:title", content: "Sahasra Tummala" },
-      {
-        property: "og:description",
-        content:
-          "R&D Intern at Sandia National Labs, studying CS & Design at UT Austin.",
-      },
     ],
   }),
   component: HomePage,
@@ -26,30 +20,55 @@ function HomePage() {
     <SiteFrame>
       <SiteHeader />
 
-      <main className="mx-auto w-full max-w-3xl px-6 pb-6 pt-12 md:pt-20">
-        <section className="space-y-5 border-b border-border pb-14">
-          <h1 className="home-name">Sahasra Tummala</h1>
-          <p className="home-subtitle">
-            R&amp;D Intern at <span className="text-foreground">Sandia National Labs</span>, studying{" "}
-            <span className="text-foreground">CS &amp; Design</span> at UT Austin.
-          </p>
+      <main className="mx-auto w-full max-w-3xl px-6 pt-20 md:pt-24">
+        {/* Hero */}
+        <section className="mb-12 text-center">
+          <h1
+            className="home-name mb-6 text-foreground tracking-tighter"
+            style={{ fontSize: "clamp(40px, 8vw, 72px)" }}
+          >
+            Sahasra Tummala
+          </h1>
+          <div className="flex flex-wrap justify-center gap-6 text-[11px] uppercase tracking-[0.2em] font-medium text-muted-foreground">
+            <span><span className="text-accent mr-2">[1]</span>R&amp;D Intern at Sandia National Labs</span>
+            <span><span className="text-accent mr-2">[2]</span>CS &amp; Design at UT Austin</span>
+          </div>
         </section>
 
-        <section className="pt-12">
-          <p className="section-kicker mb-6">Experience</p>
-          <div className="space-y-3 border-l-2 border-accent pl-5">
-            <h2 className="text-2xl font-display leading-tight text-foreground sm:text-3xl">
-              Sandia National Labs
-            </h2>
-            <p className="text-sm uppercase tracking-[0.16em] text-muted-foreground">
-              R&amp;D Intern · Albuquerque, NM · May 2026 — Present
-            </p>
-            <p className="text-base leading-relaxed text-muted-foreground">
-              Developed <span className="text-foreground">EnvEx</span>, an internal tool for nuclear deterrence engineers to visualize component test environments.
-            </p>
-            <p className="text-sm uppercase tracking-[0.16em] text-muted-foreground">
-              React · FastAPI · Python · MongoDB · Docker · OpenShift · Azure
-            </p>
+        {/* Experience */}
+        <section>
+          <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-0.5">
+                <h2 className="text-2xl font-display leading-tight text-foreground tracking-tight">
+                  Sandia National Labs
+                </h2>
+                <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground font-bold">
+                  Albuquerque, NM · May 2026 — Present
+                </p>
+              </div>
+
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">
+                R&amp;D Intern
+              </p>
+
+              <p className="text-[1.05rem] leading-relaxed text-muted-foreground">
+                Building <span className="text-foreground font-medium">EnvEx</span>,
+                an internal tool for mechanical engineers to visualize
+                component test environments through complex data streams.
+              </p>
+
+              <div className="mt-2 flex flex-wrap gap-2">
+                {['Azure', 'Docker', 'FastAPI', 'MongoDB', 'OpenShift', 'Python', 'React'].map(tech => (
+                  <span
+                    key={tech}
+                    className="px-2.5 py-1 text-[10px] uppercase tracking-[0.08em] font-medium bg-secondary text-secondary-foreground border border-border transition-colors hover:bg-accent/10 hover:border-accent/40 hover:text-accent cursor-default"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
