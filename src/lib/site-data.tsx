@@ -33,7 +33,7 @@ export const socials = [
 export const projects = [
   {
     title: "The Good Fight",
-    subtitle: "an Op-Ed on tribalism & anti-Indian racism",
+    subtitle: "an Op-Ed on tribalism and anti-Indian racism",
     href: "https://voiceoffrisco.com/the-good-fight/",
     img: goodFightImg,
     tag: "Journalism",
@@ -49,11 +49,11 @@ export const projects = [
   {
     title: "Stampede",
     subtitle:
-      "platform that hosts UT music events and talent, matches concert buddies & acts as a stylist",
+      "platform that hosts UT music events and talent, matches concert buddies, and acts as a stylist",
     href: "https://stampedetx.vercel.app/",
     img: stampedeImg,
     tag: "Hackathon",
-    award: "1st Place Headliner & 2nd Place Best Use of SerpAPI at WiCS Hacks",
+    award: "1st Place Headliner and 2nd Place Best Use of SerpAPI at WiCS Hacks",
   },
   {
     title: "Keep Austin Fed Final Showcase",
