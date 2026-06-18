@@ -33,7 +33,7 @@ export const socials = [
 export const projects = [
   {
     title: "The Good Fight",
-    subtitle: "an Op-Ed on tribalism and anti-Indian racism",
+    subtitle: "op-ed on tribalism and anti-Indian racism",
     href: "https://voiceoffrisco.com/the-good-fight/",
     img: goodFightImg,
     tag: "Journalism",
