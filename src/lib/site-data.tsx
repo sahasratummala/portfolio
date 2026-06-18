@@ -53,7 +53,7 @@ export const projects = [
     href: "https://stampedetx.vercel.app/",
     img: stampedeImg,
     tag: "Hackathon",
-    award: "1st Place Headliner and 2nd Place Best Use of SerpAPI at WiCS Hacks",
+    award: "1st place Headliner, 2nd place Best Use of SerpAPI, and a $1000 cash prize at WiCS Hacks",
   },
   {
     title: "Keep Austin Fed Final Showcase",
