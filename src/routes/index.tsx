@@ -74,7 +74,7 @@ function HomePage() {
 
           {/* Supplementary experience */}
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-4 sm:col-span-2 transition-colors hover:border-accent">
+            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-6 md:p-8 sm:col-span-2 transition-colors hover:border-accent">
               <div className="flex flex-col gap-2">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
                   <h3 className="text-sm font-display font-bold text-foreground tracking-tight">
@@ -93,7 +93,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-4 transition-colors hover:border-accent">
+            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-6 md:p-8 transition-colors hover:border-accent">
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-0.5">
                   <h3 className="text-sm font-display font-bold text-foreground tracking-tight">
@@ -104,7 +104,7 @@ function HomePage() {
                   </p>
                 </div>
                 <p className="text-[11px] uppercase tracking-wider text-accent font-semibold">
-                  Product Lead
+                  2x Product Lead
                 </p>
                 <p className="text-[0.85rem] leading-snug text-muted-foreground">
                   Leading product strategy for Longhorn Studies and Spark Plus.
@@ -112,7 +112,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-4 transition-colors hover:border-accent">
+            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-6 md:p-8 transition-colors hover:border-accent">
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-0.5">
                   <h3 className="text-sm font-display font-bold text-foreground tracking-tight">
@@ -123,7 +123,7 @@ function HomePage() {
                   </p>
                 </div>
                 <p className="text-[11px] uppercase tracking-wider text-accent font-semibold">
-                  Member &rarr; Communications Director
+                  Team Member &rarr; Communications Director
                 </p>
                 <p className="text-[0.85rem] leading-snug text-muted-foreground">
                   Leading DFA&rsquo;s recruitment and public presence through branding, social media, and outreach events.
