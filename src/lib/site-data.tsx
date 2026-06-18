@@ -33,7 +33,7 @@ export const socials = [
 export const projects = [
   {
     title: "The Good Fight",
-    subtitle: "an Op-Ed on tribalism & anti-Indian racism.",
+    subtitle: "an Op-Ed on tribalism & anti-Indian racism",
     href: "https://voiceoffrisco.com/the-good-fight/",
     img: goodFightImg,
     tag: "Journalism",
@@ -49,7 +49,7 @@ export const projects = [
   {
     title: "Stampede",
     subtitle:
-      "platform for UT music events, concert-buddy matching, and personal styling",
+      "platform that hosts UT music events and talent, matches concert buddies & acts as a stylist",
     href: "https://stampedetx.vercel.app/",
     img: stampedeImg,
     tag: "Hackathon",
@@ -58,14 +58,14 @@ export const projects = [
   {
     title: "Keep Austin Fed Final Showcase",
     subtitle:
-      "explored how Keep Austin Fed can retain food contributors",
+      "redesigned Keep Austin Fed's contributor newsletter",
     href: "https://www.figma.com/deck/mFw57DPCHvTr0zT4mSQiDU",
     img: kafCoverImg,
     tag: "Design Strategy",
   },
   {
     title: "KEEPR Brand Identity",
-    subtitle: "brand identity for an affordable student storage startup.",
+    subtitle: "brand identity for a student storage startup",
     href: keeprCoverImg,
     img: keeprCoverImg,
     tag: "Branding",

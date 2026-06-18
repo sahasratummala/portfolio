@@ -1,48 +1,92 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { resumeUrl, socials } from "@/lib/site-data";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+
+function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
+  return (
+    <>
+      <Link
+        to="/"
+        className="site-nav-link"
+        activeProps={{ className: "site-nav-link site-nav-link--active" }}
+        activeOptions={{ exact: true }}
+        onClick={onNavigate}
+      >
+        Work
+      </Link>
+      <Link
+        to="/projects"
+        className="site-nav-link"
+        activeProps={{ className: "site-nav-link site-nav-link--active" }}
+        onClick={onNavigate}
+      >
+        Projects
+      </Link>
+      <a
+        href={resumeUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="site-nav-link inline-flex items-center gap-1"
+        onClick={onNavigate}
+      >
+        Resume
+        <ArrowUpRight className="h-3.5 w-3.5" />
+      </a>
+    </>
+  );
+}
 
 export function SiteHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Lock body scroll while the mobile menu is open, and close on Escape.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
-      <Link to="/" className="site-wordmark">
+    <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
+      <Link to="/" className="site-wordmark" onClick={() => setIsMenuOpen(false)}>
         Sahasra Tummala
       </Link>
 
-      <nav className="flex items-center gap-5 sm:gap-8">
-        <Link
-          to="/"
-          className="site-nav-link"
-          activeProps={{ className: "site-nav-link site-nav-link--active" }}
-          activeOptions={{ exact: true }}
-        >
-          Work
-        </Link>
-        <Link
-          to="/projects"
-          className="site-nav-link"
-          activeProps={{ className: "site-nav-link site-nav-link--active" }}
-        >
-          Projects
-        </Link>
-        <Link
-          to="/communities"
-          className="site-nav-link"
-          activeProps={{ className: "site-nav-link site-nav-link--active" }}
-        >
-          Communities
-        </Link>
-        <a
-          href={resumeUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="site-nav-link inline-flex items-center gap-1"
-        >
-          Resume
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </a>
+      <nav className="hidden items-center gap-5 sm:flex sm:gap-8">
+        <NavLinks />
       </nav>
+
+      <button
+        type="button"
+        className="site-menu-toggle sm:hidden"
+        aria-expanded={isMenuOpen}
+        aria-controls="mobile-nav"
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        onClick={() => setIsMenuOpen((open) => !open)}
+      >
+        {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+      </button>
+
+      <div
+        id="mobile-nav"
+        className={`site-mobile-nav sm:hidden ${isMenuOpen ? "site-mobile-nav--open" : ""}`}
+      >
+        <nav className="flex flex-col items-start gap-6 px-6 py-10">
+          <NavLinks onNavigate={() => setIsMenuOpen(false)} />
+        </nav>
+      </div>
     </header>
   );
 }

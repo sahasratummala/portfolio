@@ -1,8 +1,13 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
-
+@source ".";
 @custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Arial Black";
+  src: url("/fonts/arial_black.ttf") format("truetype");
+  font-weight: 900;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -32,8 +37,8 @@
   --color-ring-offset-background: var(--background);
 
   --font-display: "Arial Black", Arial, Helvetica, sans-serif;
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-mono: Arial, Helvetica, sans-serif;
+    --font-sans: Arial, Helvetica, sans-serif;
+    --font-mono: Arial, Helvetica, sans-serif;
 }
 
 :root {
@@ -482,4 +487,47 @@
   border-color: var(--color-accent);
   background: var(--color-accent);
   color: var(--color-accent-foreground);
+}
+
+@layer components {
+  .site-menu-toggle {
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-foreground);
+    background: var(--color-background);
+  }
+
+  .site-menu-toggle:hover,
+  .site-menu-toggle[aria-expanded="true"] {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+}
+
+.site-mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  overflow: hidden;
+  max-height: 0;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-background);
+  transition: max-height 260ms ease;
+}
+
+.site-mobile-nav--open {
+  max-height: 24rem;
+}
+
+.site-mobile-nav .site-nav-link {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
 }

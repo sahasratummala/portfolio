@@ -29,15 +29,16 @@ function HomePage() {
           >
             Sahasra Tummala
           </h1>
-          <div className="flex flex-wrap justify-center gap-6 text-[11px] uppercase tracking-[0.2em] font-medium text-muted-foreground">
-            <span><span className="text-accent mr-2">[1]</span>R&amp;D Intern at Sandia National Labs</span>
+          <div className="flex flex-nowrap justify-center gap-6 text-[11px] uppercase tracking-[0.2em] font-small text-muted-foreground">
+            <span><span className="text-accent mr-2">[1]</span>R&amp;D Intern at Sandia</span>
             <span><span className="text-accent mr-2">[2]</span>CS &amp; Design at UT Austin</span>
+            <span><span className="text-accent mr-2">[3]</span>Past Life: Founder of <a href="https://voiceoffrisco.com" target="_blank" rel="noreferrer" className="text-accent hover:underline">VOF</a></span>
           </div>
         </section>
 
         {/* Experience */}
         <section>
-          <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+          <div className="bg-card border border-border shadow-lg shadow-accent/10 rounded-lg p-6 md:p-8 transition-colors hover:border-accent">
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-0.5">
                 <h2 className="text-2xl font-display leading-tight text-foreground tracking-tight">
@@ -67,6 +68,66 @@ function HomePage() {
                     {tech}
                   </span>
                 ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Supplementary experience */}
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-4 sm:col-span-2 transition-colors hover:border-accent">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
+                  <h3 className="text-sm font-display font-bold text-foreground tracking-tight">
+                    Freshman Research Initiative
+                  </h3>
+                  <p className="text-[9px] uppercase tracking-[0.14em] text-muted-foreground font-bold">
+                    Austin, TX · Jan 2026 — Present
+                  </p>
+                </div>
+                <p className="text-[11px] uppercase tracking-wider text-accent font-semibold">
+                  Medical Robotics &amp; Haptics Researcher
+                </p>
+                <p className="text-sm leading-snug text-muted-foreground">
+                  Prototyped a wearable closed-loop vibrotactile cueing system to address freezing of gait episodes in Parkinson&rsquo;s patients.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-4 transition-colors hover:border-accent">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-sm font-display font-bold text-foreground tracking-tight">
+                    Longhorn Developers
+                  </h3>
+                  <p className="text-[9px] uppercase tracking-[0.14em] text-muted-foreground font-bold">
+                    Austin, TX · Sep 2025 — Present
+                  </p>
+                </div>
+                <p className="text-[11px] uppercase tracking-wider text-accent font-semibold">
+                  Product Lead
+                </p>
+                <p className="text-[0.85rem] leading-snug text-muted-foreground">
+                  Leading product strategy for Longhorn Studies and Spark Plus.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-card border border-border shadow-md shadow-accent/5 rounded-lg p-4 transition-colors hover:border-accent">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-sm font-display font-bold text-foreground tracking-tight">
+                    Design for America
+                  </h3>
+                  <p className="text-[9px] uppercase tracking-[0.14em] text-muted-foreground font-bold">
+                    Austin, TX · Nov 2025 — Apr 2026
+                  </p>
+                </div>
+                <p className="text-[11px] uppercase tracking-wider text-accent font-semibold">
+                  Member &rarr; Communications Director
+                </p>
+                <p className="text-[0.85rem] leading-snug text-muted-foreground">
+                  Leading DFA&rsquo;s recruitment and public presence through branding, social media, and outreach events.
+                </p>
               </div>
             </div>
           </div>
