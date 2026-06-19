@@ -32,7 +32,7 @@ function HomePage() {
           <div className="flex flex-nowrap justify-center gap-4 text-[11px] uppercase tracking-[0.2em] font-small text-muted-foreground">
             <span><span className="text-accent mr-2">[1]</span>R&amp;D Intern at Sandia</span>
             <span><span className="text-accent mr-2">[2]</span>CS &amp; Design at UT Austin</span>
-            <span><span className="text-accent mr-2">[3]</span>Previously: Founder of <a href="https://voiceoffrisco.com" target="_blank" rel="noreferrer" className="text-accent hover:underline">VOF</a></span>
+            <span><span className="text-accent mr-2">[3]</span>Founder of <a href="https://voiceoffrisco.com" target="_blank" rel="noreferrer" className="text-accent hover:underline">VOF</a></span>
           </div>
         </section>
 
