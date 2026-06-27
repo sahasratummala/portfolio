@@ -6,23 +6,12 @@ import { useEffect, useState, type ReactNode } from "react";
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <>
-      <Link
-        to="/"
-        className="site-nav-link"
-        activeProps={{ className: "site-nav-link site-nav-link--active" }}
-        activeOptions={{ exact: true }}
-        onClick={onNavigate}
-      >
+      <a href="/#work" className="site-nav-link" onClick={onNavigate}>
         Work
-      </Link>
-      <Link
-        to="/projects"
-        className="site-nav-link"
-        activeProps={{ className: "site-nav-link site-nav-link--active" }}
-        onClick={onNavigate}
-      >
+      </a>
+      <a href="/#projects" className="site-nav-link" onClick={onNavigate}>
         Projects
-      </Link>
+      </a>
       <a
         href={resumeUrl}
         target="_blank"
@@ -93,7 +82,7 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto mt-24 w-full max-w-6xl border-t border-border px-6 py-16">
+    <footer className="mx-auto mt-16 w-full max-w-6xl border-t border-border px-6 py-12">
       <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
         <div className="space-y-1">
           <p className="text-xl font-display font-bold tracking-tight">Reach out!</p>
