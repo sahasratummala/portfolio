@@ -48,7 +48,7 @@ export function SiteHeader() {
   }, [isMenuOpen]);
 
   return (
-    <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
+    <header className="site-header mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
       <Link to="/" className="site-wordmark" onClick={() => setIsMenuOpen(false)}>
         Sahasra Tummala
       </Link>

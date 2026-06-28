@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
 import { SiteFooter, SiteFrame, SiteHeader } from "@/components/site-chrome";
 import { projects } from "@/lib/site-data";
@@ -89,7 +89,7 @@ function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="mx-auto mb-12 max-w-3xl text-center">
+    <section className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
       <h1
         className="home-name mb-5 text-foreground tracking-tighter"
         style={{ fontSize: "clamp(40px, 8vw, 72px)" }}
@@ -130,13 +130,35 @@ function WorkSection() {
   );
 
   return (
-    <section id="work" className="scroll-mt-24">
+    <section id="work" className="work-section scroll-mt-24">
       <div className="section-rule-heading">
         <h2>Work</h2>
         <span aria-hidden="true" />
       </div>
 
       <div className="work-panel">
+        <div className="work-select">
+          <label htmlFor="work-select" className="sr-only">
+            Select work experience
+          </label>
+          <select
+            id="work-select"
+            value={selected.id}
+            onChange={(event) =>
+              setActiveWork(
+                event.target.value as (typeof workItems)[number]["id"],
+              )
+            }
+          >
+            {workItems.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.navLabel}
+              </option>
+            ))}
+          </select>
+          <ChevronDown aria-hidden="true" className="work-select__icon" />
+        </div>
+
         <aside className="work-sidebar" aria-label="Work experience">
           {workItems.map((item) => {
             const isActive = item.id === selected.id;
@@ -175,7 +197,7 @@ function WorkSection() {
 
 function ProjectsSection() {
   return (
-    <section id="projects" className="mt-14 scroll-mt-24 md:mt-16">
+    <section id="projects" className="mt-12 scroll-mt-24 md:mt-16">
       <div className="section-rule-heading">
         <h2>Projects</h2>
         <span aria-hidden="true" />
