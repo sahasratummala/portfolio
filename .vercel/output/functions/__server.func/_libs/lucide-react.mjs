@@ -75,11 +75,13 @@ const createLucideIcon = (iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 };
-const __iconNode$5 = [
+const __iconNode$6 = [
   ["path", { d: "M7 7h10v10", key: "1tivn9" }],
   ["path", { d: "M7 17 17 7", key: "1vkiza" }]
 ];
-const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$5);
+const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$6);
+const __iconNode$5 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$5);
 const __iconNode$4 = [
   ["rect", { width: "20", height: "20", x: "2", y: "2", rx: "5", ry: "5", key: "2e1cvw" }],
   ["path", { d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z", key: "9exkf1" }],
@@ -116,6 +118,7 @@ const __iconNode = [
 const X = createLucideIcon("x", __iconNode);
 export {
   ArrowUpRight as A,
+  ChevronDown as C,
   Instagram as I,
   Linkedin as L,
   Menu as M,

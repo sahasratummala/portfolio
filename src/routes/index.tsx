@@ -130,7 +130,7 @@ function WorkSection() {
   );
 
   return (
-    <section id="work" className="work-section scroll-mt-24">
+    <section id="work" className="work-section section-scroll-target">
       <div className="section-rule-heading">
         <h2>Work</h2>
         <span aria-hidden="true" />
@@ -197,7 +197,7 @@ function WorkSection() {
 
 function ProjectsSection() {
   return (
-    <section id="projects" className="mt-12 scroll-mt-24 md:mt-16">
+    <section id="projects" className="section-scroll-target mt-12 md:mt-16">
       <div className="section-rule-heading">
         <h2>Projects</h2>
         <span aria-hidden="true" />

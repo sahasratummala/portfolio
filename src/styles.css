@@ -237,6 +237,10 @@
   background: var(--color-border);
 }
 
+.section-scroll-target {
+  scroll-margin-top: 8.5rem;
+}
+
 .work-panel {
   --work-font-small: 0.72rem;
   --work-font-medium: 0.9rem;
@@ -397,6 +401,10 @@
 }
 
 @media (max-width: 759px) {
+  .section-scroll-target {
+    scroll-margin-top: 7.5rem;
+  }
+
   .work-section {
     margin-bottom: 0.25rem;
   }
