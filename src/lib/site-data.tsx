@@ -48,7 +48,7 @@ export const projects = [
     title: "KEEPR Brand Identity",
     subtitle: "brand identity for a student storage startup",
     href: "https://canva.link/aubjdb0qwqvt76l",
-    img: "https://canva.link/aubjdb0qwqvt76l",
+    img: keeprCoverImg,
     tag: "Branding",
   },
   {
