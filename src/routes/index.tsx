@@ -64,7 +64,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sahasra Tummala — R&D Intern at Sandia National Labs, studying CS & Design at UT Austin.",
+          "Sahasra Tummala — R&D Intern at Sandia National Labs. CS & Design Student at UT Austin.",
       },
     ],
   }),
@@ -96,7 +96,7 @@ function HeroSection() {
       >
         Sahasra Tummala
       </h1>
-      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.2em] font-small text-muted-foreground">
+      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[13px] uppercase tracking-[0.2em] font-small text-muted-foreground">
         <span>
           <span className="mr-2 text-accent">[1]</span>R&amp;D Intern at Sandia
         </span>
