@@ -14,7 +14,7 @@ const workItems = [
     date: "May 2026 - Present",
     details: [
       "Developed EnvEx, an internal tool for mechanical engineers to visualize component test environments.",
-      "Developed with React, FastAPI, Python, MongoDB, Docker, OpenShift, and Azure.",
+      "Completed 22+ feature requests and resolved database issues using FastAPI, MongoDB, Python, and React.",
     ],
   },
   {
@@ -139,7 +139,7 @@ function WorkSection() {
       <div className="work-panel">
         <div className="work-select">
           <label htmlFor="work-select" className="sr-only">
-            Select work experience
+            Select Work Experience
           </label>
           <select
             id="work-select"
