@@ -96,7 +96,7 @@ function HeroSection() {
       >
         Sahasra Tummala
       </h1>
-      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[13px] uppercase tracking-[0.2em] font-small text-muted-foreground">
+      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.2em] font-small text-muted-foreground">
         <span>
           <span className="mr-2 text-accent">[1]</span>R&amp;D Intern at Sandia
         </span>
@@ -108,7 +108,7 @@ function HeroSection() {
           <span className="mr-2 text-accent">[3]</span>Founder of{" "}
           <a
             href="https://voiceoffrisco.com"
-            target="_blank"
+            target="_blank" 
             rel="noreferrer"
             className="text-accent hover:underline"
           >
