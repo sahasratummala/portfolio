@@ -8,6 +8,7 @@ import horizontalStamp from "@/assets/click-to-reveal-horizontal.png";
 import snoopyStamp from "@/assets/snoopy-stamp.png";
 import verticalStamp from "@/assets/click-to-reveal-vertical.png";
 import whaleStamp from "@/assets/whale-stamp.png";
+import cupcakeStamp from "@/assets/cupcake-stamp.png";
 
 const stampVariants = {
   horizontal: {
@@ -26,6 +27,10 @@ const revealStamps = {
   cherries: {
     src: cherriesStamp,
     alt: "Two cherries stamp",
+  },
+  cupcake: {
+    src: cupcakeStamp,
+    alt: "Cupcake stamp",
   },
   snoopy: {
     src: snoopyStamp,
@@ -64,7 +69,7 @@ function getStarterStamp(): StampVariant {
 function getRandomRevealStamp(variant: StampVariant): RevealStamp {
   if (variant === "horizontal") return "whale";
 
-  const choices: RevealStamp[] = ["cherries", "snoopy"];
+  const choices: RevealStamp[] = ["cherries", "snoopy", "cupcake"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
