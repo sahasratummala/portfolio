@@ -29,6 +29,14 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleHomeClick = () => {
+    setIsMenuOpen(false);
+
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   // Lock body scroll while the mobile menu is open, and close on Escape.
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -49,7 +57,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-header mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
-      <Link to="/" className="site-wordmark" onClick={() => setIsMenuOpen(false)}>
+      <Link to="/" className="site-wordmark" onClick={handleHomeClick}>
         Sahasra Tummala
       </Link>
 

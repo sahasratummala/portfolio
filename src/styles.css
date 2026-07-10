@@ -107,6 +107,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
   }
 
   body {
@@ -238,7 +239,7 @@
 }
 
 .section-scroll-target {
-  scroll-margin-top: 8.5rem;
+  scroll-margin-top: 7.25rem;
 }
 
 .work-panel {
@@ -402,7 +403,7 @@
 
 @media (max-width: 759px) {
   .section-scroll-target {
-    scroll-margin-top: 7.5rem;
+    scroll-margin-top: 6.5rem;
   }
 
   .work-section {
