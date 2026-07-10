@@ -263,14 +263,16 @@ function SessionStamp() {
   const handleReveal = () => {
     if (!variant || reveal || flipPhase !== "idle") return;
 
-    playStampFlipSound();
+    window.setTimeout(playStampFlipSound, 0);
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       commitReveal();
       return;
     }
 
-    setFlipPhase("out");
+    window.requestAnimationFrame(() => {
+      setFlipPhase("out");
+    });
   };
 
   const handleFlipEnd = () => {
