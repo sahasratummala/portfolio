@@ -1,8 +1,124 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteFooter, SiteFrame, SiteHeader } from "@/components/site-chrome";
 import { projects } from "@/lib/site-data";
+import cherriesStamp from "@/assets/cherries-stamp.png";
+import horizontalStamp from "@/assets/click-to-reveal-horizontal.png";
+import snoopyStamp from "@/assets/snoopy-stamp.png";
+import verticalStamp from "@/assets/click-to-reveal-vertical.png";
+import whaleStamp from "@/assets/whale-stamp.png";
+
+const stampVariants = {
+  horizontal: {
+    src: horizontalStamp,
+    alt: "Click to reveal",
+  },
+  vertical: {
+    src: verticalStamp,
+    alt: "Click to reveal",
+  },
+} as const;
+
+type StampVariant = keyof typeof stampVariants;
+
+const revealStamps = {
+  cherries: {
+    src: cherriesStamp,
+    alt: "Two cherries stamp",
+  },
+  snoopy: {
+    src: snoopyStamp,
+    alt: "Snoopy and Woodstock stamp",
+  },
+  whale: {
+    src: whaleStamp,
+    alt: "Whale stamp",
+  },
+} as const;
+
+type RevealStamp = keyof typeof revealStamps;
+type FlipPhase = "idle" | "out" | "in";
+
+const lastStarterStampKey = "portfolio-last-starter-stamp";
+
+function getStarterStamp(): StampVariant {
+  try {
+    const previousStamp = window.sessionStorage.getItem(lastStarterStampKey);
+    const selectedStamp: StampVariant =
+      previousStamp === "horizontal"
+        ? "vertical"
+        : previousStamp === "vertical"
+          ? "horizontal"
+          : window.crypto.getRandomValues(new Uint8Array(1))[0] % 2 === 0
+            ? "horizontal"
+            : "vertical";
+
+    window.sessionStorage.setItem(lastStarterStampKey, selectedStamp);
+    return selectedStamp;
+  } catch {
+    return Math.random() < 0.5 ? "horizontal" : "vertical";
+  }
+}
+
+function getRandomRevealStamp(variant: StampVariant): RevealStamp {
+  if (variant === "horizontal") return "whale";
+
+  const choices: RevealStamp[] = ["cherries", "snoopy"];
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function playStampFlipSound() {
+  const AudioContextConstructor =
+    window.AudioContext ??
+    (
+      window as typeof window & {
+        webkitAudioContext?: typeof AudioContext;
+      }
+    ).webkitAudioContext;
+
+  if (!AudioContextConstructor) return;
+
+  try {
+    const audioContext = new AudioContextConstructor();
+    const duration = 0.16;
+    const bufferLength = Math.floor(audioContext.sampleRate * duration);
+    const buffer = audioContext.createBuffer(
+      1,
+      bufferLength,
+      audioContext.sampleRate,
+    );
+    const samples = buffer.getChannelData(0);
+    let softenedNoise = 0;
+
+    for (let index = 0; index < bufferLength; index += 1) {
+      const noise = Math.random() * 2 - 1;
+      const envelope = 1 - index / bufferLength;
+      softenedNoise = softenedNoise * 0.55 + noise * 0.45;
+      samples[index] = softenedNoise * envelope;
+    }
+
+    const source = audioContext.createBufferSource();
+    const filter = audioContext.createBiquadFilter();
+    const gain = audioContext.createGain();
+    const startTime = audioContext.currentTime;
+
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(1050, startTime);
+    filter.Q.setValueAtTime(0.7, startTime);
+    gain.gain.setValueAtTime(0.0001, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.16, startTime + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+    source.buffer = buffer;
+    source.connect(filter).connect(gain).connect(audioContext.destination);
+    source.addEventListener("ended", () => void audioContext.close());
+    source.start(startTime);
+    source.stop(startTime + duration);
+  } catch {
+    // Audio is a small enhancement; the reveal still works if playback is blocked.
+  }
+}
 
 const workItems = [
   {
@@ -89,34 +205,110 @@ function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-      <h1
-        className="home-name mb-5 text-foreground tracking-tighter"
-        style={{ fontSize: "clamp(40px, 8vw, 72px)" }}
-      >
-        Sahasra Tummala
-      </h1>
-      <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.2em] font-small text-muted-foreground">
-        <span>
-          <span className="mr-2 text-accent">[1]</span>R&amp;D Intern at Sandia
-        </span>
-        <span>
-          <span className="mr-2 text-accent">[2]</span>CS &amp; Design at UT
-          Austin
-        </span>
-        <span>
-          <span className="mr-2 text-accent">[3]</span>Founder of{" "}
-          <a
-            href="https://voiceoffrisco.com"
-            target="_blank" 
-            rel="noreferrer"
-            className="text-accent hover:underline"
-          >
-            VOF
-          </a>
-        </span>
+    <section className="home-hero mb-12 md:mb-16">
+      <div className="home-hero__copy">
+        <h1 className="home-name text-foreground tracking-tighter">
+          Sahasra Tummala
+        </h1>
+        <div className="home-hero__details uppercase tracking-[0.18em] font-small text-muted-foreground">
+          <span>
+            <span className="mr-2 text-accent">[1]</span>R&amp;D Intern at
+            Sandia
+          </span>
+          <span>
+            <span className="mr-2 text-accent">[2]</span>CS &amp; Design at UT
+            Austin
+          </span>
+          <span>
+            <span className="mr-2 text-accent">[3]</span>Founder of{" "}
+            <a
+              href="https://voiceoffrisco.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-accent hover:underline"
+            >
+              VOF
+            </a>
+          </span>
+        </div>
       </div>
+
+      <SessionStamp />
     </section>
+  );
+}
+
+function SessionStamp() {
+  const [variant, setVariant] = useState<StampVariant | null>(null);
+  const [reveal, setReveal] = useState<RevealStamp | null>(null);
+  const [flipPhase, setFlipPhase] = useState<FlipPhase>("idle");
+  const didSelectStarter = useRef(false);
+
+  useEffect(() => {
+    if (didSelectStarter.current) return;
+    didSelectStarter.current = true;
+    setVariant(getStarterStamp());
+  }, []);
+
+  const commitReveal = () => {
+    if (!variant) return;
+    setReveal(getRandomRevealStamp(variant));
+  };
+
+  const handleReveal = () => {
+    if (!variant || reveal || flipPhase !== "idle") return;
+
+    playStampFlipSound();
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      commitReveal();
+      return;
+    }
+
+    setFlipPhase("out");
+  };
+
+  const handleFlipEnd = () => {
+    if (flipPhase === "out") {
+      commitReveal();
+      setFlipPhase("in");
+    } else if (flipPhase === "in") {
+      setFlipPhase("idle");
+    }
+  };
+
+  const displayedStamp = reveal
+    ? revealStamps[reveal]
+    : variant
+      ? stampVariants[variant]
+      : null;
+
+  return (
+    <button
+      type="button"
+      className={`session-stamp session-stamp--flip-${flipPhase} ${reveal ? "session-stamp--revealed" : ""}`}
+      data-variant={reveal ?? variant ?? undefined}
+      disabled={!variant || Boolean(reveal) || flipPhase !== "idle"}
+      aria-label={
+        reveal
+          ? `${revealStamps[reveal].alt} revealed`
+          : "Click to reveal a stamp"
+      }
+      onClick={handleReveal}
+      onAnimationEnd={handleFlipEnd}
+    >
+      {displayedStamp ? (
+        <img
+          src={displayedStamp.src}
+          alt={displayedStamp.alt}
+          className="session-stamp__image"
+          draggable={false}
+        />
+      ) : null}
+      <span className="sr-only" aria-live="polite">
+        {reveal ? `${revealStamps[reveal].alt} revealed` : ""}
+      </span>
+    </button>
   );
 }
 

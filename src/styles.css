@@ -563,9 +563,172 @@
 
 .home-name {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-  line-height: 1.1;
+  font-size: clamp(2.8rem, 6.6vw, 5.1rem);
+  line-height: 0.98;
   letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.home-hero {
+  --stamp-size: clamp(11rem, 19vw, 14rem);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--stamp-size);
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  align-items: center;
+}
+
+.home-hero__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.home-hero__details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem 1.25rem;
+  font-size: clamp(0.75rem, 1.15vw, 0.875rem);
+  line-height: 1.35;
+}
+
+.session-stamp {
+  display: flex;
+  width: var(--stamp-size);
+  height: var(--stamp-size);
+  appearance: none;
+  align-items: center;
+  padding: 0;
+  justify-content: center;
+  justify-self: end;
+  border: 0;
+  outline: none;
+  background: white;
+  cursor: pointer;
+  perspective: 900px;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.session-stamp:not(:disabled):hover {
+  transform: translateY(-3px) rotate(-1deg) scale(1.02);
+}
+
+.session-stamp:not(:disabled):focus-visible {
+  border-radius: 0.35rem;
+  outline: 2px solid var(--color-ring);
+  outline-offset: 5px;
+}
+
+.session-stamp--revealed,
+.session-stamp:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.session-stamp--flip-out {
+  animation: stamp-flip-out 190ms cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+
+.session-stamp--flip-in {
+  animation: stamp-flip-in 280ms cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+
+.session-stamp__image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translateZ(1px);
+  user-select: none;
+}
+
+@keyframes stamp-flip-out {
+  from {
+    transform: rotateY(0deg) scale(1);
+  }
+
+  to {
+    transform: rotateY(90deg) scale(0.94);
+  }
+}
+
+@keyframes stamp-flip-in {
+  from {
+    transform: rotateY(-90deg) scale(0.94);
+  }
+
+  72% {
+    transform: rotateY(7deg) scale(1.015);
+  }
+
+  to {
+    transform: rotateY(0deg) scale(1);
+  }
+}
+
+@media (max-width: 759px) {
+  .home-hero {
+    --stamp-size: clamp(7.5rem, 25vw, 10rem);
+
+    grid-template-columns: minmax(0, 1fr) var(--stamp-size);
+    gap: 1.5rem;
+  }
+
+  .home-name {
+    font-size: clamp(2.6rem, 7.5vw, 4.2rem);
+  }
+
+  .home-hero__copy {
+    display: contents;
+  }
+
+  .home-name {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .home-hero__details {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+  }
+
+  .session-stamp {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 430px) {
+  .home-hero {
+    --stamp-size: clamp(6.75rem, 29vw, 7.5rem);
+
+    grid-template-columns: minmax(0, 1fr) var(--stamp-size);
+    gap: 1rem;
+  }
+
+  .home-name {
+    font-size: clamp(1.9rem, 9vw, 2.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-stamp,
+  .session-stamp--flip-out,
+  .session-stamp--flip-in {
+    animation: none;
+    transition: none;
+  }
 }
 
 .home-subtitle {
