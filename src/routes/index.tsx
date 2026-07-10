@@ -45,24 +45,13 @@ const revealStamps = {
 type RevealStamp = keyof typeof revealStamps;
 type FlipPhase = "idle" | "out" | "in";
 
-const lastStarterStampKey = "portfolio-last-starter-stamp";
-
 function getStarterStamp(): StampVariant {
   try {
-    const previousStamp = window.sessionStorage.getItem(lastStarterStampKey);
-    const selectedStamp: StampVariant =
-      previousStamp === "horizontal"
-        ? "vertical"
-        : previousStamp === "vertical"
-          ? "horizontal"
-          : window.crypto.getRandomValues(new Uint8Array(1))[0] % 2 === 0
-            ? "horizontal"
-            : "vertical";
-
-    window.sessionStorage.setItem(lastStarterStampKey, selectedStamp);
-    return selectedStamp;
+    return window.crypto.getRandomValues(new Uint8Array(1))[0] < 64
+      ? "horizontal"
+      : "vertical";
   } catch {
-    return Math.random() < 0.5 ? "horizontal" : "vertical";
+    return Math.random() < 0.25 ? "horizontal" : "vertical";
   }
 }
 
@@ -253,6 +242,11 @@ function SessionStamp() {
     if (didSelectStarter.current) return;
     didSelectStarter.current = true;
     setVariant(getStarterStamp());
+
+    Object.values(revealStamps).forEach(({ src }) => {
+      const image = new Image();
+      image.src = src;
+    });
   }, []);
 
   const commitReveal = () => {
