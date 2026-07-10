@@ -1,7 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { resumeUrl, socials } from "@/lib/site-data";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode, type MouseEvent } from "react";
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   return (
@@ -29,6 +28,18 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleWordmarkClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setIsMenuOpen(false);
+
+    if (window.location.pathname !== "/") {
+      window.location.assign("/");
+      return;
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   // Lock body scroll while the mobile menu is open, and close on Escape.
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -49,9 +60,9 @@ export function SiteHeader() {
 
   return (
     <header className="site-header mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
-      <Link to="/" className="site-wordmark" onClick={() => setIsMenuOpen(false)}>
+      <a href="/" className="site-wordmark" onClick={handleWordmarkClick}>
         Sahasra Tummala
-      </Link>
+      </a>
 
       <nav className="hidden items-center gap-5 sm:flex sm:gap-8">
         <NavLinks />
