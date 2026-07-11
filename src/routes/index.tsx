@@ -188,7 +188,7 @@ function HomePage() {
     <SiteFrame>
       <SiteHeader />
 
-      <main className="mx-auto w-full max-w-6xl px-6 pt-14 md:pt-18">
+      <main className="site-main mx-auto w-full max-w-6xl px-6 pt-14 md:pt-18">
         <HeroSection />
         <WorkSection />
         <ProjectsSection />
@@ -429,7 +429,7 @@ function ProjectsSection() {
     <section
       ref={sectionRef}
       id="projects"
-      className="section-scroll-target mt-12 md:mt-16"
+      className="projects-section section-scroll-target mt-12 md:mt-16"
       style={
         lockedHeight
           ? { height: lockedHeight, overflow: "clip" }
@@ -448,7 +448,7 @@ function ProjectsSection() {
             href={project.href}
             target="_blank"
             rel="noreferrer"
-            className="group flex flex-col transition-all duration-300 ease-out hover:scale-[1.02] cursor-pointer mb-6 break-inside-avoid"
+            className="project-item group flex flex-col transition-all duration-300 ease-out hover:scale-[1.02] cursor-pointer mb-6 break-inside-avoid"
           >
             {/* Image Wrapper */}
             <div className="overflow-hidden rounded-md">
@@ -472,7 +472,7 @@ function ProjectsSection() {
             </div>
 
             {/* Hover-only description & awards */}
-            <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100">
+            <div className="project-item__details grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out group-hover:grid-rows-[1fr] group-hover:opacity-100">
               <div className="overflow-hidden">
                 {/* pt-1 keeps it tightly nested under the title, matching the original layout rhythm */}
                 <div className="flex flex-col pt-1">
