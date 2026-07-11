@@ -4,6 +4,7 @@ import hapticsImg from "@/assets/haptics-poster.png";
 import kafCoverImg from "@/assets/kaf-cover.png";
 import keeprCoverImg from "@/assets/keepr-cover.png";
 import stampedeImg from "@/assets/stampede.png";
+import sandiaImg from "@/assets/sandia.png";
 
 export const resumeUrl =
   "https://docs.google.com/document/d/1vyc1v6AyTFRZ5yDSAw5gVzNN-4CNaDuD5SXinGSazFY/edit?usp=sharing";
@@ -28,12 +29,20 @@ export const socials = [
 
 export const projects = [
   {
+    title: "EnvEx",
+    subtitle:
+      "internal tool for mechanical engineers to visualize component test environments",
+    href: sandiaImg,
+    img: sandiaImg,
+    tag: "Sandia Internship",
+  },
+  {
     title: "Stampede",
     subtitle:
       "platform that hosts UT music events and talent, matches concert buddies, and acts as a stylist",
     href: "https://stampedetx.vercel.app/",
     img: stampedeImg,
-    tag: "Hackathon",
+    tag: "WiCS Hacks",
     award: "1st place Headliner, 2nd place Best Use of SerpAPI, and a $1000 cash prize at WiCS Hacks",
   },
   {
@@ -42,21 +51,21 @@ export const projects = [
       "wearable, closed-loop vibrotactile cueing system for Parkinson's patients",
     href: hapticsImg,
     img: hapticsImg,
-    tag: "Research",
+    tag: "FRI Research",
   },
   {
     title: "Keepr Brand Identity",
     subtitle: "brand identity for a student storage startup",
     href: "https://canva.link/aubjdb0qwqvt76l",
     img: keeprCoverImg,
-    tag: "Branding",
+    tag: "Freelance",
   },
   {
     title: "Keep Austin Fed Final Showcase",
     subtitle: "redesigned Keep Austin Fed's contributor newsletter",
     href: "https://www.figma.com/deck/mFw57DPCHvTr0zT4mSQiDU",
     img: kafCoverImg,
-    tag: "Design Strategy",
+    tag: "DFA Showcase",
   },
   {
     title: "The Good Fight",

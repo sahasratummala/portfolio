@@ -12,6 +12,9 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
       <a href="/#projects" className="site-nav-link" onClick={onNavigate}>
         Projects
       </a>
+      <a href="/#bookshelf" className="site-nav-link" onClick={onNavigate}>
+        Bookshelf
+      </a>
       <a
         href={resumeUrl}
         target="_blank"

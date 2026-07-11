@@ -9,6 +9,8 @@ import snoopyStamp from "@/assets/snoopy-stamp.png";
 import verticalStamp from "@/assets/click-to-reveal-vertical.png";
 import whaleStamp from "@/assets/whale-stamp.png";
 import cupcakeStamp from "@/assets/cupcake-stamp.png";
+import devilWearsPradaPoster from "@/assets/devil.png";
+import housekeeperProfessorCover from "@/assets/housekeeper-professor.png";
 
 const stampVariants = {
   horizontal: {
@@ -190,6 +192,7 @@ function HomePage() {
         <HeroSection />
         <WorkSection />
         <ProjectsSection />
+        <BookshelfSection />
       </main>
 
       <SiteFooter />
@@ -442,6 +445,64 @@ function ProjectsSection() {
             </div>
           </a>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function BookshelfSection() {
+  return (
+    <section
+      id="bookshelf"
+      className="bookshelf-section section-scroll-target mt-12 md:mt-16"
+    >
+      <div className="section-rule-heading">
+        <h2>Bookshelf</h2>
+        <span aria-hidden="true" />
+      </div>
+
+      <div className="bookshelf-grid">
+        <article className="bookshelf-card">
+          <div className="bookshelf-card__cover bookshelf-card__cover--book">
+            <img
+              src={housekeeperProfessorCover}
+              alt="Cover of The Housekeeper and the Professor"
+              loading="lazy"
+            />
+          </div>
+          <h3>The Housekeeper and the Professor</h3>
+          <p className="bookshelf-card__byline">Yōko Ogawa</p>
+        </article>
+
+        <article className="bookshelf-card">
+          <div className="bookshelf-card__cover bookshelf-card__cover--book">
+            <img
+              src={devilWearsPradaPoster}
+              alt="The Devil Wears Prada poster"
+              loading="lazy"
+            />
+          </div>
+          <h3>The Devil Wears Prada</h3>
+        </article>
+
+        <article className="bookshelf-listening">
+          <div className="bookshelf-card__cover bookshelf-card__cover--spotify">
+            <iframe
+              title="Amsham on Spotify"
+              className="bookshelf-listening__embed"
+              src="https://open.spotify.com/embed/track/0Dt5EqEckM8jcfMYEdlx2Z?utm_source=generator&theme=0&si=4eb53fe451ed49e7"
+              width="100%"
+              height="352"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
+          <div className="bookshelf-listening__copy">
+            <h3>Amsham</h3>
+            <p>Aksomaniac, Bhumi, Circle Tone, and M.H.R</p>
+          </div>
+        </article>
       </div>
     </section>
   );
