@@ -29,7 +29,7 @@ export const socials = [
 
 export const projects = [
   {
-    title: "EnvEx",
+    title: "Environments Explorer",
     subtitle:
       "internal tool for mechanical engineers to visualize component test environments",
     href: sandiaImg,

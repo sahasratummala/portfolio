@@ -125,7 +125,7 @@ const workItems = [
     role: "R&D Intern",
     date: "May 2026 - Present",
     details: [
-      "Developed EnvEx, an internal tool for mechanical engineers to visualize component test environments.",
+      "Developed Environments Explorer (EnvEx), an internal tool for mechanical engineers to visualize component test environments.",
       "Completed 22+ feature requests and resolved database issues using FastAPI, MongoDB, Python, and React.",
     ],
   },
