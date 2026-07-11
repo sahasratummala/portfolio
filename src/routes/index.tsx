@@ -532,7 +532,7 @@ function BookshelfSection() {
             <iframe
               title="Amsham on Spotify"
               className="bookshelf-listening__embed"
-              src="https://open.spotify.com/embed/track/0Dt5EqEckM8jcfMYEdlx2Z?utm_source=generator&theme=0&si=4eb53fe451ed49e7"
+              src="https://open.spotify.com/embed/track/0Dt5EqEckM8jcfMYEdlx2Z?utm_source=generator&si=4eb53fe451ed49e7"
               width="100%"
               height="352"
               allowFullScreen
