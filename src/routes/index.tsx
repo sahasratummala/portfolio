@@ -392,8 +392,50 @@ function WorkSection() {
 }
 
 function ProjectsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [lockedHeight, setLockedHeight] = useState<number>();
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const lockHeight = () => {
+      setLockedHeight(undefined);
+      window.requestAnimationFrame(() => {
+        if (sectionRef.current) {
+          setLockedHeight(sectionRef.current.offsetHeight);
+        }
+      });
+    };
+
+    const images = Array.from(section.querySelectorAll("img"));
+    const pendingImages = images.filter((image) => !image.complete);
+    pendingImages.forEach((image) =>
+      image.addEventListener("load", lockHeight, { once: true }),
+    );
+
+    if (pendingImages.length === 0) lockHeight();
+    window.addEventListener("resize", lockHeight);
+
+    return () => {
+      window.removeEventListener("resize", lockHeight);
+      pendingImages.forEach((image) =>
+        image.removeEventListener("load", lockHeight),
+      );
+    };
+  }, []);
+
   return (
-    <section id="projects" className="section-scroll-target mt-12 md:mt-16">
+    <section
+      ref={sectionRef}
+      id="projects"
+      className="section-scroll-target mt-12 md:mt-16"
+      style={
+        lockedHeight
+          ? { height: lockedHeight, overflow: "clip" }
+          : undefined
+      }
+    >
       <div className="section-rule-heading">
         <h2>Projects</h2>
         <span aria-hidden="true" />
