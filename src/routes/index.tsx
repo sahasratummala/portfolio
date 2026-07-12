@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteFooter, SiteFrame, SiteHeader } from "@/components/site-chrome";
 import { projects } from "@/lib/site-data";
 import cherriesStamp from "@/assets/cherries-stamp.png";
+import lipstickStamp from "@/assets/lipstick-stamp.png";
 import horizontalStamp from "@/assets/click-to-reveal-horizontal.png";
 import snoopyStamp from "@/assets/snoopy-stamp.png";
 import verticalStamp from "@/assets/click-to-reveal-vertical.png";
@@ -28,7 +29,7 @@ type StampVariant = keyof typeof stampVariants;
 const revealStamps = {
   cherries: {
     src: cherriesStamp,
-    alt: "Two cherries stamp",
+    alt: "Cherries stamp",
   },
   cupcake: {
     src: cupcakeStamp,
@@ -42,6 +43,10 @@ const revealStamps = {
     src: whaleStamp,
     alt: "Whale stamp",
   },
+  lipstick: {
+    src: lipstickStamp,
+    alt: "Lipstick stamp",
+  },
 } as const;
 
 type RevealStamp = keyof typeof revealStamps;
@@ -53,14 +58,14 @@ function getStarterStamp(): StampVariant {
       ? "horizontal"
       : "vertical";
   } catch {
-    return Math.random() < 0.25 ? "horizontal" : "vertical";
+    return Math.random() < 0.2 ? "horizontal" : "vertical";
   }
 }
 
 function getRandomRevealStamp(variant: StampVariant): RevealStamp {
   if (variant === "horizontal") return "whale";
 
-  const choices: RevealStamp[] = ["cherries", "snoopy", "cupcake"];
+  const choices: RevealStamp[] = ["cherries", "snoopy", "cupcake", "lipstick"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
