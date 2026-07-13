@@ -5,6 +5,7 @@ import kafCoverImg from "@/assets/kaf-cover.png";
 import keeprCoverImg from "@/assets/keepr-cover.png";
 import stampedeImg from "@/assets/stampede.png";
 import sandiaImg from "@/assets/sandia.png";
+import spyfallImg from "@/assets/spyfall-cover.png";
 
 export const resumeUrl =
   "https://docs.google.com/document/d/1vyc1v6AyTFRZ5yDSAw5gVzNN-4CNaDuD5SXinGSazFY/edit?usp=sharing";
@@ -54,11 +55,20 @@ export const projects = [
     tag: "FRI Research",
   },
   {
-    title: "Keepr Brand Identity and Posters",
+    title: "Keepr",
     subtitle: "brand identity and posters for a student storage startup",
     href: "https://canva.link/aubjdb0qwqvt76l",
     img: keeprCoverImg,
     tag: "Freelance",
+  },
+  {
+    title: "Spyfall - Double Cross",
+    subtitle:
+      "agent that uses LLMs and embedding models to play Spyfall",
+    href: "https://stampedetx.vercel.app/",
+    img: spyfallImg,
+    tag: "MLDS Long Competition",
+    award: "1st place and a $500 cash prize at MLDS Long Competition",
   },
   {
     title: "Keep Austin Fed Final Showcase",
