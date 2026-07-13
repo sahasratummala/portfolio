@@ -40,7 +40,7 @@ export const projects = [
   {
     title: "Stampede",
     subtitle:
-      "platform that hosts UT music events and talent, matches concert buddies, and acts as a stylist",
+      "website that hosts UT music events and talent, matches concert buddies, and acts as a stylist",
     href: "https://stampedetx.vercel.app/",
     img: stampedeImg,
     tag: "WiCS Hacks",
@@ -64,7 +64,7 @@ export const projects = [
   {
     title: "Spyfall - Double Cross",
     subtitle:
-      "agent that uses LLMs and embedding models to play Spyfall",
+      "agent that uses Gemini API and semantic embeddings to play Spyfall",
     href: "https://stampedetx.vercel.app/",
     img: spyfallImg,
     tag: "MLDS Long Competition",
