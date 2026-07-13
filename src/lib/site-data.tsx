@@ -32,7 +32,7 @@ export const projects = [
   {
     title: "Environments Explorer",
     subtitle:
-      "internal tool for mechanical engineers to visualize component test environments",
+      "internal tool to visualize component test environments",
     href: sandiaImg,
     img: sandiaImg,
     tag: "Sandia Internship",
@@ -40,16 +40,16 @@ export const projects = [
   {
     title: "Stampede",
     subtitle:
-      "website that hosts UT music events and talent, matches concert buddies, and acts as a stylist",
+      "website that hosts UT concerts and talent, matches concert buddies, and acts as a stylist",
     href: "https://stampedetx.vercel.app/",
     img: stampedeImg,
     tag: "WiCS Hacks",
-    award: "1st place Headliner, 2nd place Best Use of SerpAPI, and a $1000 cash prize at WiCS Hacks",
+    award: "1st place Headliner, 2nd place Best Use of SerpAPI, and $1000 at WiCS Hacks",
   },
   {
     title: "Freezing of Gait Assistive Device",
     subtitle:
-      "wearable, closed-loop vibrotactile cueing system for Parkinson's patients",
+      "wearable, closed-loop vibrotactile cueing system to address freezing of gait episodes",
     href: hapticsImg,
     img: hapticsImg,
     tag: "FRI Research",
@@ -68,11 +68,11 @@ export const projects = [
     href: "https://stampedetx.vercel.app/",
     img: spyfallImg,
     tag: "MLDS Long Competition",
-    award: "1st place and a $500 cash prize at the MLDS Long Competition",
+    award: "1st place and $500 at the MLDS Long Competition",
   },
   {
     title: "Keep Austin Fed Final Showcase",
-    subtitle: "redesigned Keep Austin Fed's contributor newsletter",
+    subtitle: "redesigned Keep Austin Fed's food contributor newsletter",
     href: "https://www.figma.com/deck/mFw57DPCHvTr0zT4mSQiDU",
     img: kafCoverImg,
     tag: "DFA Showcase",
