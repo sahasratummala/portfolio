@@ -11,6 +11,8 @@ import verticalStamp from "@/assets/click-to-reveal-vertical.png";
 import whaleStamp from "@/assets/whale-stamp.png";
 import cupcakeStamp from "@/assets/cupcake-stamp.png";
 import devilWearsPradaPoster from "@/assets/devil.png";
+import squareStamp from "@/assets/square-stamp.png";
+import teapotStamp from "@/assets/teapot-stamp.png";
 import housekeeperProfessorCover from "@/assets/housekeeper-professor.png";
 
 const stampVariants = {
@@ -20,6 +22,10 @@ const stampVariants = {
   },
   vertical: {
     src: verticalStamp,
+    alt: "Click to reveal",
+  },
+  square: {
+    src: squareStamp,
     alt: "Click to reveal",
   },
 } as const;
@@ -47,25 +53,34 @@ const revealStamps = {
     src: lipstickStamp,
     alt: "Lipstick stamp",
   },
+  teapot: {
+    src: teapotStamp,
+    alt: "Teapot stamp",
+  },
 } as const;
 
 type RevealStamp = keyof typeof revealStamps;
 type FlipPhase = "idle" | "out" | "in";
 
 function getStarterStamp(): StampVariant {
+  const variants: StampVariant[] = ["horizontal", "vertical", "square"];
+
   try {
-    return window.crypto.getRandomValues(new Uint8Array(1))[0] < 64
-      ? "horizontal"
-      : "vertical";
+    const randomValue = window.crypto.getRandomValues(new Uint8Array(1))[0];
+    return variants[Math.floor((randomValue / 256) * variants.length)];
   } catch {
-    return Math.random() < 0.2 ? "horizontal" : "vertical";
+    return variants[Math.floor(Math.random() * variants.length)];
   }
 }
 
 function getRandomRevealStamp(variant: StampVariant): RevealStamp {
   if (variant === "horizontal") return "whale";
+  if (variant === "square") {
+    const choices: RevealStamp[] = ["cupcake", "teapot"];
+    return choices[Math.floor(Math.random() * choices.length)];
+  }
 
-  const choices: RevealStamp[] = ["cherries", "snoopy", "cupcake", "lipstick"];
+  const choices: RevealStamp[] = ["cherries", "snoopy", "lipstick"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
@@ -436,9 +451,7 @@ function ProjectsSection() {
       id="projects"
       className="projects-section section-scroll-target mt-12 md:mt-16"
       style={
-        lockedHeight
-          ? { height: lockedHeight, overflow: "clip" }
-          : undefined
+        lockedHeight ? { height: lockedHeight, overflow: "clip" } : undefined
       }
     >
       <div className="section-rule-heading">

@@ -764,6 +764,16 @@
   user-select: none;
 }
 
+.session-stamp:is(
+    [data-variant="square"],
+    [data-variant="cupcake"],
+    [data-variant="teapot"]
+  )
+  .session-stamp__image {
+  width: 82%;
+  height: 82%;
+}
+
 @keyframes stamp-flip-out {
   from {
     transform: rotateY(0deg) scale(1);
