@@ -54,8 +54,8 @@ export const projects = [
     tag: "FRI Research",
   },
   {
-    title: "Keepr Brand Identity",
-    subtitle: "brand identity for a student storage startup",
+    title: "Keepr Brand Identity and Posters",
+    subtitle: "brand identity and posters for a student storage startup",
     href: "https://canva.link/aubjdb0qwqvt76l",
     img: keeprCoverImg,
     tag: "Freelance",

@@ -179,7 +179,7 @@ const workItems = [
     navLabel: "Longhorn Developers",
     title: "Longhorn Developers",
     location: "Austin, TX",
-    role: "Product Lead",
+    role: "2x Product Lead",
     date: "Sep 2025 - Present",
     details: [
       "Led product strategy for Longhorn Studies and Spark Plus, while managing two fellows and collaborating with UT Enterprise Technology.",
