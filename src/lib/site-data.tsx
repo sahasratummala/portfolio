@@ -68,7 +68,7 @@ export const projects = [
     href: "https://stampedetx.vercel.app/",
     img: spyfallImg,
     tag: "MLDS Long Competition",
-    award: "1st place and a $500 cash prize at MLDS Long Competition",
+    award: "1st place and a $500 cash prize at the MLDS Long Competition",
   },
   {
     title: "Keep Austin Fed Final Showcase",
