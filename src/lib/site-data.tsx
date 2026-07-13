@@ -72,7 +72,7 @@ export const projects = [
   },
   {
     title: "Keep Austin Fed Final Showcase",
-    subtitle: "redesigned Keep Austin Fed's food contributor newsletter",
+    subtitle: "explored how Keep Austin Fed could identify, attract, and retain food contributors",
     href: "https://www.figma.com/deck/mFw57DPCHvTr0zT4mSQiDU",
     img: kafCoverImg,
     tag: "DFA Showcase",
