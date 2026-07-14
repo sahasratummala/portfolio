@@ -522,7 +522,12 @@ function BookshelfSection() {
       </div>
 
       <div className="bookshelf-grid">
-        <article className="bookshelf-card">
+        <a
+          className="bookshelf-card"
+          href="https://www.goodreads.com/sahasratummala"
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
             <img
               src={housekeeperProfessorCover}
@@ -532,9 +537,14 @@ function BookshelfSection() {
           </div>
           <h3>The Housekeeper and the Professor</h3>
           <p className="bookshelf-card__byline">Yōko Ogawa</p>
-        </article>
+        </a>
 
-        <article className="bookshelf-card">
+        <a
+          className="bookshelf-card"
+          href="https://letterboxd.com/sahasratummala/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
             <img
               src={devilWearsPradaPoster}
@@ -543,7 +553,7 @@ function BookshelfSection() {
             />
           </div>
           <h3>The Devil Wears Prada</h3>
-        </article>
+        </a>
 
         <article className="bookshelf-listening">
           <div className="bookshelf-card__cover bookshelf-card__cover--spotify">
