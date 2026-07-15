@@ -135,6 +135,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    text-wrap: pretty;
     -webkit-font-smoothing: antialiased;
   }
 
