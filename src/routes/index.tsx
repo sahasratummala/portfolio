@@ -14,6 +14,7 @@ import devilWearsPradaPoster from "@/assets/devil.png";
 import squareStamp from "@/assets/square-stamp.png";
 import teapotStamp from "@/assets/teapot-stamp.png";
 import housekeeperProfessorCover from "@/assets/housekeeper-professor.png";
+import juiceStamp from "@/assets/juice-stamp.png";
 
 const stampVariants = {
   horizontal: {
@@ -57,6 +58,10 @@ const revealStamps = {
     src: teapotStamp,
     alt: "Teapot stamp",
   },
+  juice: {
+    src: juiceStamp,
+    alt: "Juice stamp",
+  }
 } as const;
 
 type RevealStamp = keyof typeof revealStamps;
@@ -80,7 +85,7 @@ function getRandomRevealStamp(variant: StampVariant): RevealStamp {
     return choices[Math.floor(Math.random() * choices.length)];
   }
 
-  const choices: RevealStamp[] = ["cherries", "snoopy", "lipstick"];
+  const choices: RevealStamp[] = ["cherries", "snoopy", "lipstick", "juice"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
