@@ -10,7 +10,7 @@ import snoopyStamp from "@/assets/snoopy-stamp.png";
 import verticalStamp from "@/assets/click-to-reveal-vertical.png";
 import whaleStamp from "@/assets/whale-stamp.png";
 import cupcakeStamp from "@/assets/cupcake-stamp.png";
-import devilWearsPradaPoster from "@/assets/devil.png";
+import odysseyPoster from "@/assets/odyssey.jpg";
 import squareStamp from "@/assets/square-stamp.png";
 import teapotStamp from "@/assets/teapot-stamp.png";
 import housekeeperProfessorCover from "@/assets/housekeeper-professor.png";
@@ -561,30 +561,22 @@ function BookshelfSection() {
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
             <img
-              src={devilWearsPradaPoster}
-              alt="The Devil Wears Prada poster"
+              src={odysseyPoster}
+              alt="The Odyssey poster"
               loading="lazy"
             />
           </div>
-          <h3>The Devil Wears Prada</h3>
+          <h3>The Odyssey</h3>
+          <p>Christopher Nolan</p>
         </a>
 
         <article className="bookshelf-listening">
           <div className="bookshelf-card__cover bookshelf-card__cover--spotify">
-            <iframe
-              title="Amsham on Spotify"
-              className="bookshelf-listening__embed"
-              src="https://open.spotify.com/embed/track/0Dt5EqEckM8jcfMYEdlx2Z?utm_source=generator&si=4eb53fe451ed49e7"
-              width="100%"
-              height="352"
-              allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
+            <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/track/5ROXfVUT3pKjkan6nudSQh?utm_source=generator&si=ba9d69931a864c4a" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </div>
           <div className="bookshelf-listening__copy">
-            <h3>Amsham</h3>
-            <p>Aksomaniac, Bhumi, Circle Tone, and M.H.R</p>
+            <h3>Kalarani</h3>
+            <p>Lakshay Naidu and Krishna</p>
           </div>
         </article>
       </div>
