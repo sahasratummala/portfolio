@@ -357,7 +357,7 @@
 
 .work-detail {
   display: flex;
-  min-height: 15rem;
+  min-height: 16rem;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;

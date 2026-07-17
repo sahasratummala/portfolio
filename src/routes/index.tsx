@@ -192,6 +192,15 @@ const workItems = [
       "Conducted 10+ user interviews and testing sessions to define MVP scope for Longhorn Studies.",
     ],
   },
+  // {
+  //   id: "daily-texan",
+  //   navLabel: "Daily Texan",
+  //   title: "Daily Texan",
+  //   location: "Austin, TX",
+  //   role: "General Projects Reporter",
+  //   date: "June 2026 - Present",
+  //   details: [],
+  // },
 ] as const;
 
 export const Route = createFileRoute("/")({
