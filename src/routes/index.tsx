@@ -549,8 +549,6 @@ function BookshelfSection() {
               loading="lazy"
             />
           </div>
-          <h3>The Housekeeper and the Professor</h3>
-          <p className="bookshelf-card__byline">Yōko Ogawa</p>
         </a>
 
         <a
@@ -566,17 +564,11 @@ function BookshelfSection() {
               loading="lazy"
             />
           </div>
-          <h3>The Odyssey</h3>
-          <p>Christopher Nolan</p>
         </a>
 
         <article className="bookshelf-listening">
           <div className="bookshelf-card__cover bookshelf-card__cover--spotify">
             <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/track/5ROXfVUT3pKjkan6nudSQh?utm_source=generator&si=ba9d69931a864c4a" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-          <div className="bookshelf-listening__copy">
-            <h3>Kalarani</h3>
-            <p>Lakshay Naidu and Krishna</p>
           </div>
         </article>
       </div>
