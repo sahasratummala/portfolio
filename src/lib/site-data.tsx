@@ -65,7 +65,7 @@ export const projects = [
     title: "Spyfall - Double Cross",
     subtitle:
       "agent that uses Gemini API and semantic embeddings to play Spyfall",
-    href: "https://stampedetx.vercel.app/",
+    href: "https://docs.google.com/presentation/d/1VhjaukFedTcX-2Ssn8yR9LbAlgXkkD49-kaIvXz3D84/edit?usp=sharing",
     img: spyfallImg,
     tag: "MLDS Long Competition",
     award: "1st place and $500 at the MLDS Long Competition",
