@@ -148,7 +148,7 @@ const workItems = [
     title: "Sandia National Labs",
     location: "Albuquerque, NM",
     role: "R&D Intern",
-    date: "May 2026 - Present",
+    date: "May 2026 - Present ★ Intern Thunderbird Award",
     details: [
       "Developed Environments Explorer, an internal tool to visualize component test environments.",
       "Completed 22+ feature requests and resolved database issues using FastAPI, MongoDB, Python, and React.",
