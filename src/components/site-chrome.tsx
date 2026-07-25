@@ -64,13 +64,13 @@ export function SiteHeader() {
         Sahasra Tummala
       </Link>
 
-      <nav className="hidden items-center gap-5 sm:flex sm:gap-8">
+      <nav className="hidden items-center gap-8 min-[760px]:flex">
         <NavLinks />
       </nav>
 
       <button
         type="button"
-        className="site-menu-toggle sm:hidden"
+        className="site-menu-toggle min-[760px]:hidden"
         aria-expanded={isMenuOpen}
         aria-controls="mobile-nav"
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -81,7 +81,7 @@ export function SiteHeader() {
 
       <div
         id="mobile-nav"
-        className={`site-mobile-nav sm:hidden ${isMenuOpen ? "site-mobile-nav--open" : ""}`}
+        className={`site-mobile-nav min-[760px]:hidden ${isMenuOpen ? "site-mobile-nav--open" : ""}`}
       >
         <nav className="flex flex-col items-start gap-6 px-6 py-10">
           <NavLinks onNavigate={() => setIsMenuOpen(false)} />
@@ -94,9 +94,11 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="mx-auto mt-16 w-full max-w-6xl border-t border-border px-6 py-12">
-      <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
+      <div className="flex flex-col gap-10 min-[760px]:flex-row min-[760px]:items-end min-[760px]:justify-between">
         <div className="space-y-1">
-          <p className="text-xl font-display font-bold tracking-tight">Reach out!</p>
+          <p className="text-xl font-display font-bold tracking-tight">
+            Reach out!
+          </p>
         </div>
 
         <nav className="flex items-center gap-3">
@@ -119,5 +121,7 @@ export function SiteFooter() {
 }
 
 export function SiteFrame({ children }: { children: ReactNode }) {
-  return <div className="min-h-screen bg-background text-foreground">{children}</div>;
+  return (
+    <div className="min-h-screen bg-background text-foreground">{children}</div>
+  );
 }

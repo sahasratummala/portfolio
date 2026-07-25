@@ -622,6 +622,8 @@
 .bookshelf-card__cover--spotify {
   position: relative;
   height: var(--bookshelf-media-height);
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .bookshelf-card__cover img {
@@ -682,6 +684,7 @@
   width: 100%;
   height: var(--bookshelf-media-height);
   border: 0;
+  background-color: transparent;
 }
 
 @media (min-width: 760px) {
@@ -690,21 +693,10 @@
   }
 }
 
-@media (max-width: 620px) {
-  .bookshelf-grid {
-    grid-template-columns: 9rem 9rem 18rem;
-    gap: 0.75rem;
-  }
-
-  .bookshelf-card__cover--book {
-    width: 9rem;
-  }
-}
-
 .home-name {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6.6vw, 5.1rem);
-  line-height: 0.98;
+  font-size: clamp(2.4rem, calc(1.4rem + 4.2vw), 5.1rem);
+  line-height: 0.96;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
@@ -732,7 +724,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 0.5rem 1.25rem;
-  font-size: clamp(0.75rem, 1.15vw, 0.875rem);
+  font-size: clamp(0.6rem, calc(0.48rem + 0.4vw), 0.875rem);
   line-height: 1.35;
 }
 
@@ -831,10 +823,6 @@
     gap: 1.5rem;
   }
 
-  .home-name {
-    font-size: clamp(2.6rem, 7.5vw, 4.2rem);
-  }
-
   .home-hero__copy {
     display: contents;
   }
@@ -856,19 +844,6 @@
   .session-stamp {
     grid-column: 2;
     grid-row: 2;
-  }
-}
-
-@media (max-width: 430px) {
-  .home-hero {
-    --stamp-size: clamp(6.75rem, 29vw, 7.5rem);
-
-    grid-template-columns: minmax(0, 1fr) var(--stamp-size);
-    gap: 1rem;
-  }
-
-  .home-name {
-    font-size: clamp(1.9rem, 9vw, 2.25rem);
   }
 }
 
@@ -1115,13 +1090,23 @@
   z-index: 40;
   overflow: hidden;
   max-height: 0;
+  visibility: hidden;
   border-bottom: 1px solid var(--color-border);
   background: var(--color-background);
-  transition: max-height 260ms ease;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    max-height 260ms ease,
+    opacity 180ms ease,
+    visibility 0s linear 260ms;
 }
 
 .site-mobile-nav--open {
   max-height: 24rem;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 .site-mobile-nav .site-nav-link {
@@ -1131,7 +1116,7 @@
 
 /* Mobile is intentionally composed as its own layout instead of a compressed
    version of the desktop grid. */
-@media (max-width: 620px) {
+@media (max-width: 759px) {
   body {
     overflow-x: hidden;
   }
@@ -1176,34 +1161,50 @@
   }
 
   .home-hero {
-    --stamp-size: 7rem;
+    --stamp-size: clamp(6rem, 28vw, 7.25rem);
 
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--stamp-size);
-    gap: 1.5rem 0.75rem;
-    margin-bottom: 3.5rem;
-    align-items: end;
+    column-gap: 1rem;
+    row-gap: 0.3rem;
+    margin-bottom: 4.5rem;
+    align-items: center;
   }
 
   .home-name {
-    font-size: clamp(2.5rem, 13vw, 3.35rem);
-    line-height: 0.94;
+    grid-column: 1;
+    grid-row: 1;
     white-space: normal;
   }
 
   .home-hero__details {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     gap: 0.65rem;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    line-height: 1.45;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  .home-hero__founder {
+    display: none;
+  }
+
+  .home-hero__details > span > .text-accent {
+    margin-right: 0.35rem;
   }
 
   .session-stamp {
-    align-self: end;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
   }
 
   .section-rule-heading {
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.6rem;
   }
 
   .section-rule-heading h2 {
@@ -1212,6 +1213,18 @@
 
   .work-select select {
     min-height: 3.25rem;
+  }
+
+  .work-panel {
+    gap: 1.4rem;
+  }
+
+  .work-detail {
+    gap: 1.15rem;
+  }
+
+  .work-detail__header {
+    gap: 0.55rem;
   }
 
   .work-detail__list {
@@ -1232,15 +1245,6 @@
 
   .project-item {
     margin-bottom: 2.25rem;
-  }
-
-  .project-item:hover {
-    transform: none;
-  }
-
-  .project-item__details {
-    grid-template-rows: 1fr;
-    opacity: 1;
   }
 
   .project-item__details p {
@@ -1287,6 +1291,7 @@
     height: auto;
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    background: transparent;
   }
 
   .bookshelf-listening__embed {
@@ -1295,10 +1300,28 @@
     width: 100%;
     height: 100%;
     border: 0;
+    background: transparent;
   }
 
   footer {
     margin-top: 4rem !important;
     padding: 2rem 1.25rem 2.5rem !important;
+  }
+
+  footer > div {
+    gap: 1.75rem;
+  }
+}
+
+@media (hover: none) {
+  .project-item:hover,
+  .bookshelf-card:hover,
+  .bookshelf-listening:hover {
+    transform: none;
+  }
+
+  .project-item__details {
+    grid-template-rows: 1fr;
+    opacity: 1;
   }
 }

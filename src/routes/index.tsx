@@ -61,7 +61,7 @@ const revealStamps = {
   juice: {
     src: juiceStamp,
     alt: "Juice stamp",
-  }
+  },
 } as const;
 
 type RevealStamp = keyof typeof revealStamps;
@@ -222,7 +222,7 @@ function HomePage() {
     <SiteFrame>
       <SiteHeader />
 
-      <main className="site-main mx-auto w-full max-w-6xl px-6 pt-14 md:pt-18">
+      <main className="site-main mx-auto w-full max-w-6xl px-6 pt-14 min-[760px]:pt-18">
         <HeroSection />
         <WorkSection />
         <ProjectsSection />
@@ -236,7 +236,7 @@ function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="home-hero mb-12 md:mb-16">
+    <section className="home-hero mb-12 min-[760px]:mb-16">
       <div className="home-hero__copy">
         <h1 className="home-name text-foreground tracking-tighter">
           Sahasra Tummala
@@ -250,7 +250,7 @@ function HeroSection() {
             <span className="mr-2 text-accent">[2]</span>CS &amp; Design at UT
             Austin
           </span>
-          <span>
+          <span className="home-hero__founder">
             <span className="mr-2 text-accent">[3]</span>Founder of{" "}
             <a
               href="https://voiceoffrisco.com"
@@ -463,7 +463,7 @@ function ProjectsSection() {
     <section
       ref={sectionRef}
       id="projects"
-      className="projects-section section-scroll-target mt-12 md:mt-16"
+      className="projects-section section-scroll-target mt-12 min-[760px]:mt-16"
       style={
         lockedHeight ? { height: lockedHeight, overflow: "clip" } : undefined
       }
@@ -528,7 +528,7 @@ function BookshelfSection() {
   return (
     <section
       id="bookshelf"
-      className="bookshelf-section section-scroll-target mt-12 md:mt-16"
+      className="bookshelf-section section-scroll-target mt-12 min-[760px]:mt-16"
     >
       <div className="section-rule-heading">
         <h2>Bookshelf</h2>
@@ -558,11 +558,7 @@ function BookshelfSection() {
           rel="noreferrer"
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
-            <img
-              src={odysseyPoster}
-              alt="The Odyssey poster"
-              loading="lazy"
-            />
+            <img src={odysseyPoster} alt="The Odyssey poster" loading="lazy" />
           </div>
         </a>
 

@@ -2,7 +2,7 @@ import { Instagram, Linkedin, Mail } from "lucide-react";
 import goodFightImg from "@/assets/good-fight.jpg";
 import hapticsImg from "@/assets/haptics-poster.png";
 import kafCoverImg from "@/assets/kaf-cover.png";
-import keeprCoverImg from "@/assets/keepr-cover.png";
+import keeprCoverImg from "@/assets/keepr-cover.jpg";
 import stampedeImg from "@/assets/stampede.png";
 import sandiaImg from "@/assets/sandia.png";
 import spyfallImg from "@/assets/spyfall-cover.png";
@@ -57,7 +57,7 @@ export const projects = [
   {
     title: "Keepr",
     subtitle: "brand identity and posters for a student storage startup",
-    href: "https://canva.link/6q1qx119sco3dh7",
+    href: "https://canva.link/keepr",
     img: keeprCoverImg,
     tag: "Freelance",
   },

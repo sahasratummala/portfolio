@@ -5,9 +5,7 @@ import { projects } from "@/lib/site-data";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
-    meta: [
-      { title: "Projects — Sahasra Tummala" },
-    ],
+    meta: [{ title: "Projects — Sahasra Tummala" }],
   }),
   component: ProjectsPage,
 });
@@ -17,7 +15,7 @@ function ProjectsPage() {
     <SiteFrame>
       <SiteHeader />
 
-      <main className="site-main mx-auto w-full max-w-6xl px-6 pb-6 pt-12 md:pt-20">
+      <main className="site-main mx-auto w-full max-w-6xl px-6 pb-6 pt-12 min-[760px]:pt-20">
         <section className="pt-2">
           <div className="project-masonry gap-y-6">
             {projects.map((project) => (
