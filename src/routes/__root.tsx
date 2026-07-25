@@ -82,14 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Sahasra Tummala — R&D Intern at Sandia National Labs, studying CS & Design at UT Austin.",
+          "Sahasra Tummala — R&D Intern at Sandia. CS & Design Student at UT Austin.",
       },
       { name: "author", content: "Sahasra Tummala" },
       { property: "og:title", content: "Sahasra Tummala" },
       {
         property: "og:description",
         content:
-          "R&D Intern at Sandia National Labs, studying CS & Design at UT Austin.",
+          "R&D Intern at Sandia. CS & Design Student at UT Austin.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

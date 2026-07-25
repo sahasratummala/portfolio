@@ -12,6 +12,11 @@ export const resumeUrl =
 
 export const socials = [
   {
+    label: "Email",
+    href: "mailto:sahasratummala@utexas.edu",
+    Icon: Mail,
+  },
+  {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/sahasratummala/",
     Icon: Linkedin,
@@ -20,11 +25,6 @@ export const socials = [
     label: "Instagram",
     href: "https://www.instagram.com/sahasratummalaa/",
     Icon: Instagram,
-  },
-  {
-    label: "Email",
-    href: "mailto:sahasratummala@utexas.edu",
-    Icon: Mail,
   },
 ] as const;
 

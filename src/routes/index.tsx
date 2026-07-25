@@ -210,7 +210,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sahasra Tummala — R&D Intern at Sandia National Labs. CS & Design Student at UT Austin.",
+          "Sahasra Tummala — R&D Intern at Sandia. CS & Design Student at UT Austin.",
       },
     ],
   }),
