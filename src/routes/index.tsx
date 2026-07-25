@@ -144,7 +144,7 @@ function playStampFlipSound() {
 const workItems = [
   {
     id: "sandia",
-    navLabel: "Sandia",
+    navLabel: "Sandia National Labs",
     title: "Sandia National Labs",
     location: "Albuquerque, NM",
     role: "R&D Intern",
