@@ -241,27 +241,10 @@ function HeroSection() {
         <h1 className="home-name text-foreground tracking-tighter">
           Sahasra Tummala
         </h1>
-        <div className="home-hero__details uppercase tracking-[0.18em] font-small text-muted-foreground">
-          <span>
-            <span className="mr-2 text-accent">[1]</span>R&amp;D Intern at
-            Sandia
-          </span>
-          <span>
-            <span className="mr-2 text-accent">[2]</span>CS &amp; Design at UT
-            Austin
-          </span>
-          <span className="home-hero__founder">
-            <span className="mr-2 text-accent">[3]</span>Founder of{" "}
-            <a
-              href="https://voiceoffrisco.com"
-              target="_blank"
-              rel="noreferrer"
-              className="text-accent hover:underline"
-            >
-              VOF
-            </a>
-          </span>
-        </div>
+        <p className="home-hero__details font-small uppercase tracking-[0.18em] text-muted-foreground">
+          Developing <span className="text-accent">products</span> and{" "}
+          <span className="text-accent">stories</span> that matter.
+        </p>
       </div>
 
       <SessionStamp />
