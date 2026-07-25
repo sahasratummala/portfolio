@@ -96,7 +96,7 @@ export function SiteFooter() {
     <footer className="mx-auto mt-16 w-full max-w-6xl border-t border-border px-6 py-12">
       <div className="flex flex-col gap-10 min-[760px]:flex-row min-[760px]:items-end min-[760px]:justify-between">
         <div className="space-y-1">
-          <p className="text-xl font-display font-bold tracking-tight">
+          <p className="site-footer__heading text-xl font-display font-bold tracking-tight">
             Reach out!
           </p>
         </div>

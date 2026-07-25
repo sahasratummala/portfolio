@@ -37,13 +37,15 @@ function ProjectsPage() {
                 </div>
 
                 {/* Always visible details */}
-                <div className="flex flex-col pt-3">
-                  <p className="text-xs uppercase tracking-wider text-accent font-medium">
+                <div className="project-item__copy flex flex-col pt-3">
+                  <p className="project-item__tag text-xs uppercase tracking-wider text-accent font-medium">
                     {project.tag}
                   </p>
-                  <div className="mt-1 flex items-center gap-1">
-                    <h2 className="text-base font-semibold">{project.title}</h2>
-                    <ArrowUpRight className="h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <div className="project-item__title-row mt-1 flex items-center gap-1">
+                    <h2 className="project-item__title text-base font-semibold">
+                      {project.title}
+                    </h2>
+                    <ArrowUpRight className="project-item__icon h-4 w-4 shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
 
@@ -52,9 +54,11 @@ function ProjectsPage() {
                   <div className="overflow-hidden">
                     {/* pt-1 keeps it tightly nested under the title, matching the original layout rhythm */}
                     <div className="flex flex-col pt-1">
-                      <p className="text-sm opacity-80">{project.subtitle}</p>
+                      <p className="project-item__subtitle text-sm opacity-80">
+                        {project.subtitle}
+                      </p>
                       {"award" in project && project.award && (
-                        <p className="mt-1 text-xs leading-relaxed opacity-60">
+                        <p className="project-item__award mt-1 text-xs leading-relaxed opacity-60">
                           {project.award}
                         </p>
                       )}
