@@ -1311,8 +1311,8 @@
   }
 
   footer {
-    margin-top: 3rem !important;
-    padding: 2rem 1.25rem 2.5rem !important;
+    margin-top: clamp(2rem, calc(0.05rem + 8.33vw), 4rem) !important;
+    padding: clamp(1.5rem, calc(0.035rem + 6.25vw), 3rem) 1.25rem 2.5rem !important;
   }
 
   footer > div {
