@@ -1311,12 +1311,12 @@
   }
 
   footer {
-    margin-top: clamp(2rem, calc(0.05rem + 8.33vw), 4rem) !important;
-    padding: clamp(1.5rem, calc(0.035rem + 6.25vw), 3rem) 1.25rem 2.5rem !important;
+    margin-top: 2rem !important;
+    padding: 1.5rem 1.25rem 2.5rem !important;
   }
 
-  footer > div {
-    gap: 1.75rem;
+  .site-footer__content {
+    gap: 0.35rem !important;
   }
 
   .site-footer__heading {
