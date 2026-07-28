@@ -147,7 +147,7 @@ const workItems = [
     navLabel: "Sandia National Labs",
     title: "Sandia National Labs",
     location: "Albuquerque, NM",
-    role: "R&D Intern",
+    role: "Data Insights Intern",
     date: "May 2026 - Present ★ Intern Thunderbird Award",
     details: [
       "Developed Environments Explorer, an internal tool to visualize component test environments.",
@@ -210,7 +210,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sahasra Tummala — R&D Intern at Sandia. CS & Design Student at UT Austin.",
+          "Sahasra Tummala — Data Insights Intern at Sandia. CS & Design Student at UT Austin.",
       },
     ],
   }),
