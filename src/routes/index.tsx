@@ -240,7 +240,7 @@ function ProjectsSection() {
       id="projects"
       className="projects-section section-scroll-target mt-12 min-[760px]:mt-16"
       style={
-        lockedHeight ? { height: lockedHeight, overflow: "clip" } : undefined
+        lockedHeight ? { height: lockedHeight, overflow: "visible" } : undefined
       }
     >
       <div className="section-rule-heading">

@@ -507,8 +507,6 @@
   column-count: 1;
   column-gap: 1.4rem;
   padding-bottom: 6.5rem;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
   overflow: visible;
 }
 
@@ -1480,6 +1478,7 @@
   .site-footer {
     --work-list-font-size: clamp(0.82rem, calc(0.74rem + 0.34vw), 0.9rem);
 
+    background: transparent;
     margin-top: 3rem !important;
     padding: 3rem 1.5rem !important;
   }
