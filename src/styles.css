@@ -1486,7 +1486,7 @@
   .site-footer__content {
     display: flex;
     width: 100%;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     gap: clamp(0.75rem, 4vw, 1.75rem);
   }
@@ -1494,7 +1494,10 @@
   .site-footer__stamp {
     --stamp-size: clamp(4.25rem, calc(100vw - 15.5rem), 7.5rem);
 
-    justify-self: start;
+    display: flex;
+    align-self: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .site-footer__lists {
