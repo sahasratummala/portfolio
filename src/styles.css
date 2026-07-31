@@ -735,6 +735,11 @@
   height: var(--hero-visual-size);
   justify-self: end;
   isolation: isolate;
+  transition: transform 300ms ease-out;
+}
+
+.hero-portrait:hover {
+  transform: scale(1.02);
 }
 
 .hero-portrait__image {
@@ -770,6 +775,7 @@
   perspective: 900px;
   transform-origin: center;
   transform-style: preserve-3d;
+  transition: transform 300ms ease-out;
   will-change: transform;
   overflow: hidden;
 }
@@ -914,8 +920,8 @@
   display: none;
 }
 
-.session-stamp:not(:disabled):hover {
-  transform: translateY(-3px) rotate(-1deg) scale(1.02);
+.session-stamp:hover {
+  transform: scale(1.02);
 }
 
 .session-stamp:not(:disabled):focus-visible {
@@ -1013,6 +1019,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-portrait,
   .session-stamp,
   .session-stamp--flip-out,
   .session-stamp--flip-in {
@@ -1520,6 +1527,8 @@
 }
 
 @media (hover: none) {
+  .hero-portrait:hover,
+  .session-stamp:hover,
   .project-item:hover,
   .bookshelf-card:hover,
   .bookshelf-listening:hover {
