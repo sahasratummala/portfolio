@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Menu, X } from "lucide-react";
 import { resumeUrl, socials } from "@/lib/site-data";
 import { useEffect, useState, type ReactNode } from "react";
+import { SessionStamp } from "@/components/session-stamp";
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   return (
@@ -59,7 +60,10 @@ export function SiteHeader() {
   }, [isMenuOpen]);
 
   return (
-    <header className="site-header mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
+    <header
+      id="top"
+      className="site-header mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8"
+    >
       <Link to="/" className="site-wordmark" onClick={handleHomeClick}>
         Sahasra Tummala
       </Link>
@@ -93,28 +97,53 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="mx-auto mt-4 w-full max-w-6xl border-t border-border px-6 py-12 min-[760px]:mt-16">
-      <div className="site-footer__content flex flex-col gap-10 min-[760px]:flex-row min-[760px]:items-end min-[760px]:justify-between">
-        <div className="space-y-1">
-          <p className="site-footer__heading text-xl font-display font-bold tracking-tight">
-            Reach out!
-          </p>
+    <footer className="site-footer mx-auto mt-4 w-full max-w-6xl border-t border-border px-6 py-12 min-[760px]:mt-16">
+      <div className="site-footer__content">
+        <div className="site-footer__stamp">
+          <SessionStamp />
         </div>
 
-        <nav className="flex items-center gap-3">
-          {socials.map(({ label, href, Icon: IconComponent }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={label}
-              className="icon-link"
+        <div className="site-footer__lists">
+          <div className="site-footer__contact">
+            <p className="site-footer__eyebrow">Reach out!</p>
+            <nav
+              className="site-footer__social-list"
+              aria-label="Contact links"
             >
-              <IconComponent className="h-5 w-5" strokeWidth={1.75} />
-            </a>
-          ))}
-        </nav>
+              {socials.map(({ label, href, Icon: IconComponent }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                  className="site-footer__social-link"
+                >
+                  <IconComponent
+                    aria-hidden="true"
+                    className="h-4 w-4"
+                    strokeWidth={1.6}
+                  />
+                  <span>{label}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          <nav className="site-footer__links" aria-label="Footer navigation">
+            <p className="site-footer__eyebrow">Navigation</p>
+            <div className="site-footer__nav">
+              <NavLinks />
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div className="site-footer__signoff">
+        <span>Sahasra Tummala</span>
+        <a href="#top" className="site-footer__back-to-top">
+          Back to top
+          <ArrowUp aria-hidden="true" />
+        </a>
       </div>
     </footer>
   );

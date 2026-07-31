@@ -1,4 +1,8 @@
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import {
+  Mail,
+  Instagram,
+  Linkedin,
+} from "lucide-react"; 
 import goodFightImg from "@/assets/good-fight.jpg";
 import hapticsImg from "@/assets/haptics-poster.png";
 import kafCoverImg from "@/assets/kaf-cover.png";
@@ -10,6 +14,7 @@ import spyfallImg from "@/assets/spyfall-cover.png";
 export const resumeUrl =
   "https://docs.google.com/document/d/1vyc1v6AyTFRZ5yDSAw5gVzNN-4CNaDuD5SXinGSazFY/edit?usp=sharing";
 
+
 export const socials = [
   {
     label: "Email",
@@ -17,14 +22,14 @@ export const socials = [
     Icon: Mail,
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sahasratummala/",
-    Icon: Linkedin,
-  },
-  {
     label: "Instagram",
     href: "https://www.instagram.com/sahasratummalaa/",
     Icon: Instagram,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/sahasratummala/",
+    Icon: Linkedin,
   },
 ] as const;
 
