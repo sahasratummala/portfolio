@@ -704,7 +704,7 @@
 
 .home-name {
   font-family: var(--font-display);
-  font-size: clamp(2.04rem, calc(1.19rem + 3.57vw), 4.335rem);
+  font-size: clamp(2.088rem, calc(1.218rem + 3.654vw), 4.437rem);
   line-height: 0.96;
   letter-spacing: -0.01em;
   white-space: nowrap;
