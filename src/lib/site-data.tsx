@@ -82,11 +82,4 @@ export const projects = [
     img: kafCoverImg,
     tag: "DFA Showcase",
   },
-  {
-    title: "The Good Fight",
-    subtitle: "op-ed on tribalism and anti-Indian racism",
-    href: "https://voiceoffrisco.com/the-good-fight/",
-    img: goodFightImg,
-    tag: "Journalism",
-  },
 ] as const;
