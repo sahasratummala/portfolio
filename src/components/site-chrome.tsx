@@ -116,7 +116,7 @@ export function SiteFooter() {
                   href={href}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
                   rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
-                  className="site-footer__social-link"
+                  className="site-nav-link inline-flex items-center gap-2"
                 >
                   <IconComponent
                     aria-hidden="true"
