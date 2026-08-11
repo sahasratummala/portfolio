@@ -3,9 +3,9 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteFooter, SiteFrame, SiteHeader } from "@/components/site-chrome";
 import { projects } from "@/lib/site-data";
-import odysseyPoster from "@/assets/odyssey.jpg";
+import FilmPoster from "@/assets/wei-baba.jpg";
 import portrait from "@/assets/sahasra-portrait.png";
-import housekeeperProfessorCover from "@/assets/housekeeper-professor.png";
+import bookCover from "@/assets/tales.jpg";
 
 const workItems = [
   {
@@ -323,8 +323,7 @@ function BookshelfSection() {
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
             <img
-              src={housekeeperProfessorCover}
-              alt="Cover of The Housekeeper and the Professor"
+              src={bookCover}
               loading="lazy"
             />
           </div>
@@ -337,7 +336,7 @@ function BookshelfSection() {
           rel="noreferrer"
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
-            <img src={odysseyPoster} alt="The Odyssey poster" loading="lazy" />
+            <img src={FilmPoster} loading="lazy" />
           </div>
         </a>
 
@@ -346,7 +345,7 @@ function BookshelfSection() {
             <iframe
               className="bookshelf-listening__embed"
               data-testid="embed-iframe"
-              src="https://open.spotify.com/embed/track/5ROXfVUT3pKjkan6nudSQh?utm_source=generator&si=ba9d69931a864c4a"
+              src="https://open.spotify.com/embed/track/7v7jCGjNJzmlzC4PLIp4Sm?utm_source=generator&si=ecdf1e6dc22e4d98"
               title="Spotify track embed"
               width="100%"
               height="352"
