@@ -10,8 +10,8 @@ import bookCover from "@/assets/tales.jpg";
 const workItems = [
   {
     id: "sandia",
-    navLabel: "Sandia National Labs",
-    title: "Sandia National Labs",
+    navLabel: "Sandia National Laboratories",
+    title: "Sandia National Laboratories",
     location: "Albuquerque, NM",
     role: "Data Insights Intern",
     date: "May 2026 - Present ★ Intern Thunderbird Award",
