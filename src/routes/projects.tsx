@@ -18,7 +18,7 @@ function ProjectsPage() {
       <main className="site-main mx-auto w-full max-w-6xl px-6 pb-6 pt-12 min-[760px]:pt-20">
         <section className="pt-2">
           <div className="project-masonry gap-y-6">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <a
                 key={project.title}
                 href={project.href}
@@ -26,6 +26,7 @@ function ProjectsPage() {
                 rel="noreferrer"
                 className="project-item group flex flex-col transition-all duration-300 ease-out hover:scale-[1.02] cursor-pointer mb-6 break-inside-avoid"
                 data-reveal
+                data-reveal-delay={(index % 3) * 65}
               >
                 {/* Image Wrapper */}
                 <div className="overflow-hidden rounded-md">

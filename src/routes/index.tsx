@@ -69,16 +69,6 @@ const workItems = [
   // },
 ] as const;
 
-const taglineParts = [
-  { text: "Developing ", accent: false },
-  { text: "products", accent: true },
-  { text: " and ", accent: false },
-  { text: "stories", accent: true },
-  { text: " that matter.", accent: false },
-] as const;
-
-const taglineText = taglineParts.map(({ text }) => text).join("");
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -117,10 +107,13 @@ function HeroSection() {
         <h1 className="home-name text-foreground tracking-tighter" data-reveal>
           Sahasra Tummala
         </h1>
-        <TypewriterTagline />
+        <p className="home-hero__details font-small uppercase tracking-[0.18em] text-muted-foreground">
+          Developing <span className="text-accent">products</span> and{" "}
+          <span className="text-accent">stories</span> that matter.
+        </p>
       </div>
 
-      <div className="hero-portrait" data-reveal>
+      <div className="hero-portrait" data-reveal data-reveal-delay="90">
         <img
           src={portrait}
           alt="Sahasra Tummala smiling outdoors"
@@ -128,88 +121,6 @@ function HeroSection() {
         />
       </div>
     </section>
-  );
-}
-
-function TypewriterTagline() {
-  const [visibleCharacters, setVisibleCharacters] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-
-  useEffect(() => {
-    let startTimer: number | undefined;
-    let typingFrame: number | undefined;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisibleCharacters(taglineText.length);
-      return;
-    }
-
-    const startTyping = () => {
-      startTimer = window.setTimeout(() => {
-        setHasStarted(true);
-        const typingStartedAt = performance.now();
-
-        const typeNextCharacter = (timestamp: number) => {
-          const nextCharacter = Math.min(
-            taglineText.length,
-            Math.floor((timestamp - typingStartedAt) / 25) + 1,
-          );
-
-          setVisibleCharacters((current) =>
-            current === nextCharacter ? current : nextCharacter,
-          );
-
-          if (nextCharacter < taglineText.length) {
-            typingFrame = window.requestAnimationFrame(typeNextCharacter);
-          }
-        };
-
-        typingFrame = window.requestAnimationFrame(typeNextCharacter);
-      }, 200);
-    };
-
-    if (document.readyState === "complete") {
-      startTyping();
-    } else {
-      window.addEventListener("load", startTyping, { once: true });
-    }
-
-    return () => {
-      window.removeEventListener("load", startTyping);
-      if (startTimer) window.clearTimeout(startTimer);
-      if (typingFrame) window.cancelAnimationFrame(typingFrame);
-    };
-  }, []);
-
-  let remainingCharacters = visibleCharacters;
-
-  return (
-    <p
-      className="home-hero__details tagline-typewriter font-small uppercase tracking-[0.18em] text-muted-foreground"
-      aria-label="Developing products and stories that matter."
-    >
-      <span className="tagline-typewriter__measure" aria-hidden="true">
-        {taglineText}
-      </span>
-      <span className="tagline-typewriter__live" aria-hidden="true">
-        {taglineParts.map((part) => {
-          const visibleText = part.text.slice(0, remainingCharacters);
-          remainingCharacters = Math.max(
-            0,
-            remainingCharacters - part.text.length,
-          );
-
-          return (
-            <span key={part.text} className={part.accent ? "text-accent" : ""}>
-              {visibleText}
-            </span>
-          );
-        })}
-        {hasStarted && visibleCharacters < taglineText.length ? (
-          <span className="tagline-typewriter__cursor" />
-        ) : null}
-      </span>
-    </p>
   );
 }
 
@@ -229,7 +140,7 @@ function WorkSection() {
         <span aria-hidden="true" />
       </div>
 
-      <div className="work-panel" data-reveal>
+      <div className="work-panel" data-reveal data-reveal-delay="70">
         <div className="work-select">
           <label htmlFor="work-select" className="sr-only">
             Select Work Experience
@@ -338,7 +249,7 @@ function ProjectsSection() {
       </div>
 
       <div className="project-masonry gap-y-6">
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <a
             key={project.title}
             href={project.href}
@@ -346,6 +257,7 @@ function ProjectsSection() {
             rel="noreferrer"
             className="project-item group flex flex-col transition-all duration-300 ease-out hover:scale-[1.02] cursor-pointer mb-6 break-inside-avoid"
             data-reveal
+            data-reveal-delay={(index % 3) * 65}
           >
             {/* Image Wrapper */}
             <div className="overflow-hidden rounded-md">
@@ -423,13 +335,18 @@ function BookshelfSection() {
           target="_blank"
           rel="noreferrer"
           data-reveal
+          data-reveal-delay="65"
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
             <img src={FilmPoster} loading="lazy" />
           </div>
         </a>
 
-        <article className="bookshelf-listening" data-reveal>
+        <article
+          className="bookshelf-listening"
+          data-reveal
+          data-reveal-delay="130"
+        >
           <div className="bookshelf-card__cover bookshelf-card__cover--spotify">
             <iframe
               className="bookshelf-listening__embed"
