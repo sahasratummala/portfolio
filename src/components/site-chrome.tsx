@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUp, ArrowUpRight, Menu, X } from "lucide-react";
 import { resumeUrl, socials } from "@/lib/site-data";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { SessionStamp } from "@/components/session-stamp";
+import { useRevealMotion } from "@/hooks/use-reveal-motion";
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   return (
@@ -97,7 +98,10 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer mx-auto mt-4 w-full max-w-6xl border-t border-border px-6 py-12 min-[760px]:mt-16">
+    <footer
+      className="site-footer mx-auto mt-4 w-full max-w-6xl border-t border-border px-6 py-12 min-[760px]:mt-16"
+      data-reveal
+    >
       <div className="site-footer__content">
         <div className="site-footer__stamp">
           <SessionStamp />
@@ -150,7 +154,15 @@ export function SiteFooter() {
 }
 
 export function SiteFrame({ children }: { children: ReactNode }) {
+  const frameRef = useRef<HTMLDivElement>(null);
+  useRevealMotion(frameRef);
+
   return (
-    <div className="min-h-screen bg-background text-foreground">{children}</div>
+    <div
+      ref={frameRef}
+      className="site-frame min-h-screen bg-background text-foreground"
+    >
+      {children}
+    </div>
   );
 }

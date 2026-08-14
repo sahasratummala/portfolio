@@ -30,6 +30,24 @@ type StampVariant = keyof typeof stampVariants;
 type RevealStamp = keyof typeof revealStamps;
 type FlipPhase = "idle" | "out" | "in";
 
+async function preloadStamp(src: string) {
+  const image = new Image();
+  image.src = src;
+
+  try {
+    if (!image.complete) {
+      await new Promise<void>((resolve, reject) => {
+        image.addEventListener("load", () => resolve(), { once: true });
+        image.addEventListener("error", () => reject(), { once: true });
+      });
+    }
+
+    await image.decode();
+  } catch {
+    // Rendering can still proceed if the browser cannot decode ahead of time.
+  }
+}
+
 function getStarterStamp(): StampVariant {
   const variants: StampVariant[] = ["horizontal", "vertical", "square"];
   const randomValue = window.crypto.getRandomValues(new Uint8Array(1))[0];
@@ -63,7 +81,11 @@ function playStampFlipSound() {
     const audioContext = new AudioContextConstructor();
     const duration = 0.16;
     const bufferLength = Math.floor(audioContext.sampleRate * duration);
-    const buffer = audioContext.createBuffer(1, bufferLength, audioContext.sampleRate);
+    const buffer = audioContext.createBuffer(
+      1,
+      bufferLength,
+      audioContext.sampleRate,
+    );
     const samples = buffer.getChannelData(0);
     let softenedNoise = 0;
 
@@ -100,17 +122,25 @@ export function SessionStamp() {
   const [variant, setVariant] = useState<StampVariant | null>(null);
   const [reveal, setReveal] = useState<RevealStamp | null>(null);
   const [flipPhase, setFlipPhase] = useState<FlipPhase>("idle");
-  const didSelectStarter = useRef(false);
+  const preloadedReveal = useRef<RevealStamp | null>(null);
 
   useEffect(() => {
-    if (didSelectStarter.current) return;
-    didSelectStarter.current = true;
-    setVariant(getStarterStamp());
+    const starter = getStarterStamp();
+    const preparedReveal = getRandomRevealStamp(starter);
+    let isMounted = true;
 
-    Object.values(revealStamps).forEach(({ src }) => {
-      const image = new Image();
-      image.src = src;
+    void Promise.all([
+      preloadStamp(stampVariants[starter].src),
+      preloadStamp(revealStamps[preparedReveal].src),
+    ]).then(() => {
+      if (!isMounted) return;
+      preloadedReveal.current = preparedReveal;
+      setVariant(starter);
     });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleReveal = () => {
@@ -119,7 +149,7 @@ export function SessionStamp() {
     window.setTimeout(playStampFlipSound, 0);
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setReveal(getRandomRevealStamp(variant));
+      setReveal(preloadedReveal.current ?? getRandomRevealStamp(variant));
       return;
     }
 
@@ -128,7 +158,7 @@ export function SessionStamp() {
 
   const handleFlipEnd = () => {
     if (flipPhase === "out" && variant) {
-      setReveal(getRandomRevealStamp(variant));
+      setReveal(preloadedReveal.current ?? getRandomRevealStamp(variant));
       setFlipPhase("in");
     } else if (flipPhase === "in") {
       setFlipPhase("idle");
@@ -147,7 +177,11 @@ export function SessionStamp() {
       className={`session-stamp session-stamp--flip-${flipPhase} ${reveal ? "session-stamp--revealed" : ""}`}
       data-variant={reveal ?? variant ?? undefined}
       disabled={!variant || Boolean(reveal) || flipPhase !== "idle"}
-      aria-label={reveal ? `${revealStamps[reveal].alt} revealed` : "Click to reveal a stamp"}
+      aria-label={
+        reveal
+          ? `${revealStamps[reveal].alt} revealed`
+          : "Click to reveal a stamp"
+      }
       onClick={handleReveal}
       onAnimationEnd={handleFlipEnd}
     >

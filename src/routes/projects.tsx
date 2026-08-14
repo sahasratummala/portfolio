@@ -25,6 +25,7 @@ function ProjectsPage() {
                 target="_blank"
                 rel="noreferrer"
                 className="project-item group flex flex-col transition-all duration-300 ease-out hover:scale-[1.02] cursor-pointer mb-6 break-inside-avoid"
+                data-reveal
               >
                 {/* Image Wrapper */}
                 <div className="overflow-hidden rounded-md">

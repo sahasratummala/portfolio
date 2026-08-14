@@ -69,6 +69,16 @@ const workItems = [
   // },
 ] as const;
 
+const taglineParts = [
+  { text: "Developing ", accent: false },
+  { text: "products", accent: true },
+  { text: " and ", accent: false },
+  { text: "stories", accent: true },
+  { text: " that matter.", accent: false },
+] as const;
+
+const taglineText = taglineParts.map(({ text }) => text).join("");
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -104,16 +114,13 @@ function HeroSection() {
   return (
     <section className="home-hero mb-12 min-[760px]:mb-16">
       <div className="home-hero__copy">
-        <h1 className="home-name text-foreground tracking-tighter">
+        <h1 className="home-name text-foreground tracking-tighter" data-reveal>
           Sahasra Tummala
         </h1>
-        <p className="home-hero__details font-small uppercase tracking-[0.18em] text-muted-foreground">
-          Developing <span className="text-accent">products</span> and{" "}
-          <span className="text-accent">stories</span> that matter.
-        </p>
+        <TypewriterTagline />
       </div>
 
-      <div className="hero-portrait">
+      <div className="hero-portrait" data-reveal>
         <img
           src={portrait}
           alt="Sahasra Tummala smiling outdoors"
@@ -121,6 +128,88 @@ function HeroSection() {
         />
       </div>
     </section>
+  );
+}
+
+function TypewriterTagline() {
+  const [visibleCharacters, setVisibleCharacters] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  useEffect(() => {
+    let startTimer: number | undefined;
+    let typingFrame: number | undefined;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisibleCharacters(taglineText.length);
+      return;
+    }
+
+    const startTyping = () => {
+      startTimer = window.setTimeout(() => {
+        setHasStarted(true);
+        const typingStartedAt = performance.now();
+
+        const typeNextCharacter = (timestamp: number) => {
+          const nextCharacter = Math.min(
+            taglineText.length,
+            Math.floor((timestamp - typingStartedAt) / 25) + 1,
+          );
+
+          setVisibleCharacters((current) =>
+            current === nextCharacter ? current : nextCharacter,
+          );
+
+          if (nextCharacter < taglineText.length) {
+            typingFrame = window.requestAnimationFrame(typeNextCharacter);
+          }
+        };
+
+        typingFrame = window.requestAnimationFrame(typeNextCharacter);
+      }, 200);
+    };
+
+    if (document.readyState === "complete") {
+      startTyping();
+    } else {
+      window.addEventListener("load", startTyping, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener("load", startTyping);
+      if (startTimer) window.clearTimeout(startTimer);
+      if (typingFrame) window.cancelAnimationFrame(typingFrame);
+    };
+  }, []);
+
+  let remainingCharacters = visibleCharacters;
+
+  return (
+    <p
+      className="home-hero__details tagline-typewriter font-small uppercase tracking-[0.18em] text-muted-foreground"
+      aria-label="Developing products and stories that matter."
+    >
+      <span className="tagline-typewriter__measure" aria-hidden="true">
+        {taglineText}
+      </span>
+      <span className="tagline-typewriter__live" aria-hidden="true">
+        {taglineParts.map((part) => {
+          const visibleText = part.text.slice(0, remainingCharacters);
+          remainingCharacters = Math.max(
+            0,
+            remainingCharacters - part.text.length,
+          );
+
+          return (
+            <span key={part.text} className={part.accent ? "text-accent" : ""}>
+              {visibleText}
+            </span>
+          );
+        })}
+        {hasStarted && visibleCharacters < taglineText.length ? (
+          <span className="tagline-typewriter__cursor" />
+        ) : null}
+      </span>
+    </p>
   );
 }
 
@@ -135,12 +224,12 @@ function WorkSection() {
 
   return (
     <section id="work" className="work-section section-scroll-target">
-      <div className="section-rule-heading">
+      <div className="section-rule-heading" data-reveal>
         <h2>Work</h2>
         <span aria-hidden="true" />
       </div>
 
-      <div className="work-panel">
+      <div className="work-panel" data-reveal>
         <div className="work-select">
           <label htmlFor="work-select" className="sr-only">
             Select Work Experience
@@ -243,7 +332,7 @@ function ProjectsSection() {
         lockedHeight ? { height: lockedHeight, overflow: "visible" } : undefined
       }
     >
-      <div className="section-rule-heading">
+      <div className="section-rule-heading" data-reveal>
         <h2>Projects</h2>
         <span aria-hidden="true" />
       </div>
@@ -256,6 +345,7 @@ function ProjectsSection() {
             target="_blank"
             rel="noreferrer"
             className="project-item group flex flex-col transition-all duration-300 ease-out hover:scale-[1.02] cursor-pointer mb-6 break-inside-avoid"
+            data-reveal
           >
             {/* Image Wrapper */}
             <div className="overflow-hidden rounded-md">
@@ -309,7 +399,7 @@ function BookshelfSection() {
       id="bookshelf"
       className="bookshelf-section section-scroll-target mt-12 min-[760px]:mt-16"
     >
-      <div className="section-rule-heading">
+      <div className="section-rule-heading" data-reveal>
         <h2>Bookshelf</h2>
         <span aria-hidden="true" />
       </div>
@@ -320,12 +410,10 @@ function BookshelfSection() {
           href="https://www.goodreads.com/sahasratummala"
           target="_blank"
           rel="noreferrer"
+          data-reveal
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
-            <img
-              src={bookCover}
-              loading="lazy"
-            />
+            <img src={bookCover} loading="lazy" />
           </div>
         </a>
 
@@ -334,13 +422,14 @@ function BookshelfSection() {
           href="https://letterboxd.com/sahasratummala/"
           target="_blank"
           rel="noreferrer"
+          data-reveal
         >
           <div className="bookshelf-card__cover bookshelf-card__cover--book">
             <img src={FilmPoster} loading="lazy" />
           </div>
         </a>
 
-        <article className="bookshelf-listening">
+        <article className="bookshelf-listening" data-reveal>
           <div className="bookshelf-card__cover bookshelf-card__cover--spotify">
             <iframe
               className="bookshelf-listening__embed"
