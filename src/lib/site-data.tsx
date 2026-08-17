@@ -62,7 +62,7 @@ export const projects = [
   {
     title: "Keepr",
     subtitle: "brand identity and posters for a student storage startup",
-    href: "https://canva.link/keepr",
+    href: "https://utstudent.my.canva.site/keepr",
     img: keeprCoverImg,
     tag: "Freelance",
   },
